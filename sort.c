@@ -1,8 +1,25 @@
 #include "push_swap.h"
 
-int *radix_sort(int *random_number)
+int *binary_radix_sort(int *random_number)
 {
+	int a_stack[10] = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
+	int b_stack[10];
+	int a_len;
+	int b_len;
+	a_len = 10;
+	b_len = 0;
+	int mask;
+	mask = 1;
+	while (a_len--)
+	{
+		if (*a_stack & mask)
+			ft_printf("pb\n");
+		else
+			ft_printf("ra\n");
+	}
 	
+	
+	return (a_stack);
 }
 
 int *bubble_sort(void)
