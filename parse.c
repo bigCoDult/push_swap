@@ -2,7 +2,9 @@
 
 int *parse(int argc, char** argv)
 {
-	//argc가 1일때 에러메세지 출력 금지
+	// argc가 1일때 에러메세지 출력 금지
+	// 빈문자열은 에러처리
+	// ft_atoi 사용할것
 	if (argc == 1)
 		exit(0);
 	if (argc == 2)

@@ -6,13 +6,16 @@ int *binary_radix_sort(int *random_number)
 	int b_stack[10];
 	int a_len;
 	int b_len;
+	int mask;
+	int bit_range;
 	a_len = 10;
 	b_len = 0;
-	int mask;
 	mask = 1;
+	bit_range = 0;
+	
 	while (a_len--)
 	{
-		if (*a_stack & mask)
+		if (*a_stack & (mask << bit_range++))
 			ft_printf("pb\n");
 		else
 			ft_printf("ra\n");
@@ -94,3 +97,4 @@ void	bubble_sort(int *tab, int size)
 		i++;
 	}
 }
+
