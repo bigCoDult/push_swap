@@ -3,12 +3,8 @@
 int main(int argc, char** argv)
 {
 	int *stack_a;
-	int *stack_b;
-	char **command;
-	validate_input(argc, argv);
 	stack_a = parse(argc, argv);
-	stack_a = convert_binary_radix(stack_a);
-	command = radix_sort(stack_a, stack_b);
-	print_command(command);
+	// validate_stack(stack_a);
+	binary_radix_sort(stack_a);
 	return (0);
 }

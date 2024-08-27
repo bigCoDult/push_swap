@@ -88,7 +88,7 @@ void 	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_printf(const char *str, ...);
 int		ft_putfmt_cdux(t_etc *etc, va_list ap, char col);
 int		ft_putfmt_sp(t_etc *etc, va_list ap, char col);
-int		ft_putchar_fd(char col, int fd);
+int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_putll_fd(long long int n, int fd);
 int		ft_puthex_fd(int islower, long long unsigned int n, int fd);

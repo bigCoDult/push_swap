@@ -1,9 +1,7 @@
 #include "push_swap.h"
 
-int *binary_radix_sort(int *random_number)
+void	binary_radix_sort(int *random_number)
 {
-	int a_stack[10] = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
-	int b_stack[10];
 	int a_len;
 	int b_len;
 	int mask;
@@ -13,34 +11,33 @@ int *binary_radix_sort(int *random_number)
 	mask = 1;
 	bit_range = 0;
 	
-	while (a_len--)
+	while (bit_range < 32)
 	{
-		if (*a_stack & (mask << bit_range++))
-			ft_printf("pb\n");
-		else
-			ft_printf("ra\n");
+		a_len = 10;
+		while (a_len)
+		{
+			if (*random_number & (mask << bit_range))
+			{
+				// ft_printf("pb\n");
+				printf("pb\n");
+				b_len++;
+			}
+			else
+				// ft_printf("ra\n");
+				printf("ra\n");
+			a_len--;
+		}
+		while (b_len)
+		{
+			// ft_printf("pa\n");
+			printf("pa\n");
+			b_len--;
+		}
+		bit_range++;
 	}
-	
-	
-	return (a_stack);
+	return ;
 }
 
-int *bubble_sort(void)
-{
-	int a_stack[10] = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
-	int b_stack[10];
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	return (a_stack);
-}
 
 /*
 	sa (swap a)
@@ -73,28 +70,3 @@ int *bubble_sort(void)
 	rrr
 		rra와 rrb가 동시에 발생합니다.
 */
-
-void	bubble_sort(int *tab, int size)
-{
-	int	tmp;
-	int	i;
-	int	k;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		k = i + 1;
-		while (k < size)
-		{
-			if (tab[i] > tab[k])
-			{
-				tmp = tab[i];
-				tab[i] = tab[k];
-				tab[k] = tmp;
-			}
-			k++;
-		}
-		i++;
-	}
-}
-

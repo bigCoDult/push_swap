@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/08/22 10:23:03 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/08/27 15:46:50 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct s_etc
 	char					*string;
 	long long unsigned int	*ads;
 }	t_etc;
+
+void	binary_radix_sort(int *random_number);
+int *parse(int argc, char** argv);
+int *parse_single_input(char *str);
+int *parse_several_input(int argc, char **str);
+
 
 
 #endif /* PUSH_SWAP_H */
