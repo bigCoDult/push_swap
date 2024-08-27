@@ -1,15 +1,16 @@
-NAME = so_long
+NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -O0
+# CFLAGS = -Wall -Wextra -Werror -g -O0
+CFLAGS = -g -O0
 LDFLAGS = -L$(LIBFT_DIR) -lLIBFT
-LIBFT_DIR = ./libft`
+LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 RM = rm -fr
-INC = -I.
+INC = -I. -I$(LIBFT_DIR)
 SRC = \
 			main.c \
-			ft_printf.c \
-			ft_pututils.c
+			sort.c \
+			parse.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -22,7 +23,7 @@ $(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INC) -C $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
