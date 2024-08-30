@@ -40,10 +40,9 @@ SRC = \
       ./ft_putnbr_fd.c \
       ./ft_lstnew.c \
       ./ft_printf.c \
-      ./ft_pututils.c
-
-      # ./ft_putchar_fd.c \
-      # ./ft_putstr_fd.c \
+      ./ft_printfutils.c \
+      ./ft_putchar_fd.c \
+      ./ft_putstr_fd.c \
 
 OBJ = $(SRC:.c=.o)
 

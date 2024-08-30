@@ -13,8 +13,8 @@ int *parse(int argc, char** argv)
 	{
 		if (ft_isspace(argv[tmp_argc--]))
 		{
-			// ft_printf("Error\n");
-			printf("Error\n");
+			ft_printf("Error\n");
+			// printf("Error\n");
 			exit(1);
 		}
 	}
