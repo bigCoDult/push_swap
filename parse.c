@@ -1,5 +1,5 @@
 #include "push_swap.h"
-// #include "./libft/libft.h"
+#include "./libft/libft.h"
 
 int *parse(int argc, char** argv)
 {
@@ -9,22 +9,25 @@ int *parse(int argc, char** argv)
 	int tmp_argc;
 	tmp_argc = argc;
 	if (tmp_argc == 1)
-		exit(1);
-	while (tmp_argc > 1)
 	{
-		// if (ft_isspace(argv[tmp_argc--]))
-		if (ft_isspace(argv[tmp_argc--][0]))
-		{
-			ft_printf("Error\n");
-			// printf("Error\n");
-			exit(1);
-		}
+		ft_printf("no arguments, delete this error message later\n");
+		exit(1);
 	}
-	tmp_argc = argc;
-	if (argc == 2)
-		return (parse_single_input(argv[1]));
-	else
+	// while (tmp_argc > 1)
+	// {
+	// 	if (ft_isspace(argv[tmp_argc--][0]))
+	// 	{
+	// 		ft_printf("Error\n");
+	// 		// printf("Error\n");
+	// 		exit(1);
+	// 	}
+	// }
+	// tmp_argc = argc;
+	// if (argc == 2)
+	// 	return (parse_single_input(argv[1]));
+	// else
 		return (parse_several_input(argc, argv));
+	// return (NULL);
 }
 
 int *parse_single_input(char *str)
@@ -43,11 +46,31 @@ int *parse_single_input(char *str)
 	return (int_a);
 }
 
-int *parse_several_input(int argc, char **str)
+int *parse_several_input(int argc, char **argv)
 {
-	int *int_a;
-	*int_a = 1;
-	return (int_a);
-
-
+	int i;
+	int *numbers;
+	i = 0;
+	numbers = malloc(sizeof(int) * argc);
+	while (i < argc - 1)
+	{
+		numbers[i] = ft_atoi(argv[i + 1]);
+		i++;
+	}
+	return (numbers);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

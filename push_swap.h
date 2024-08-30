@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/08/30 10:16:52 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/08/30 11:09:29 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 void	binary_radix_sort(int *random_number);
 int *parse(int argc, char** argv);
 int *parse_single_input(char *str);
-int *parse_several_input(int argc, char **str);
+int *parse_several_input(int argc, char **argv);
 
 
 
