@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/08/27 15:46:50 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/08/30 10:16:52 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-
-typedef struct s_etc
-{
-	int						n;
-	unsigned int			u;
-	char					*string;
-	long long unsigned int	*ads;
-}	t_etc;
 
 void	binary_radix_sort(int *random_number);
 int *parse(int argc, char** argv);

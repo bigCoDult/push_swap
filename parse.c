@@ -1,4 +1,5 @@
 #include "push_swap.h"
+// #include "./libft/libft.h"
 
 int *parse(int argc, char** argv)
 {
@@ -11,7 +12,8 @@ int *parse(int argc, char** argv)
 		exit(1);
 	while (tmp_argc > 1)
 	{
-		if (ft_isspace(argv[tmp_argc--]))
+		// if (ft_isspace(argv[tmp_argc--]))
+		if (ft_isspace(argv[tmp_argc--][0]))
 		{
 			ft_printf("Error\n");
 			// printf("Error\n");
