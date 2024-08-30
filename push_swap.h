@@ -6,18 +6,20 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/08/30 11:09:29 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/08/30 13:24:42 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-
 //가변인자
 # include <stdarg.h>
 //NULL
 # include <stddef.h>
+// 멍청함
+# include "libft.h"
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>

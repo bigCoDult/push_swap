@@ -1,12 +1,13 @@
 NAME = push_swap
 CC = cc
-# CFLAGS = -Wall -Wextra -Werror -g -O0
 CFLAGS = -g -O0
-LDFLAGS = -L$(LIBFT_DIR) -lft
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
+# CFLAGS = -Wall -Wextra -Werror -g -O0
 RM = rm -fr
-INC = -I. -I$(LIBFT_DIR)
+LIBFT_DIR = ./libft
+LDFLAGS = -L$(LIBFT_DIR) -lft
+LIBFT = $(LIBFT_DIR)/libft.a
+INC = -I$(LIBFT_DIR)
+
 SRC = \
 			main.c \
 			sort.c \

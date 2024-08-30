@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include "./libft/libft.h"
 
 int *parse(int argc, char** argv)
 {

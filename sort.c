@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include "./libft/libft.h"
 
 void	binary_radix_sort(int *random_number)
 {
@@ -12,23 +11,23 @@ void	binary_radix_sort(int *random_number)
 	mask = 1;
 	bit_range = 0;
 	
-	while (bit_range < 32)
+	while (bit_range < 8)
 	{
 		a_len = 10;
 		while (a_len)
 		{
 			if (*random_number & (mask << bit_range))
 			{
-				ft_printf("pb\n");
+				// ft_printf("pb\n");
 				b_len++;
 			}
 			// else
-				ft_printf("ra\n");
+				// ft_printf("ra\n");
 			a_len--;
 		}
 		while (b_len)
 		{
-			ft_printf("pa\n");
+			// ft_printf("pa\n");
 			b_len--;
 		}
 		bit_range++;
