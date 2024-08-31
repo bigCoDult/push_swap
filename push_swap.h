@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/08/31 10:39:41 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/08/31 13:46:47 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-void	binary_radix_sort(int stack_size, int *random_number);
+void	binary_radix_sort(int stack_len, int *random_number);
 int *parse(int argc, char** argv);
 int *parse_single_input(char *str);
 int *parse_several_input(int argc, char **argv);
-
 
 
 #endif /* PUSH_SWAP_H */

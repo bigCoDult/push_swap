@@ -1,33 +1,35 @@
 #include "push_swap.h"
 
-void	binary_radix_sort(int stack_size, int *random_number)
+void	binary_radix_sort(int stack_len, int *random_number)
 {
 	int a_len;
 	int b_len;
 	int mask;
 	int bit_range;
 	int max_range;
-	int biggest = 0;
+	int biggest_num;
 	int k;
-	k = 0;
-	a_len = stack_size;
+
+	a_len = stack_len;
 	b_len = 0;
 	mask = 1;
 	bit_range = 0;
+	max_range = 1 << 31;
+	k = 0;
 	
-	while (k < stack_size)
+	while (k < stack_len)
 	{
-		if (biggest < random_number[k])
-			biggest = random_number[k];
+		if (biggest_num < random_number[k])
+			biggest_num = random_number[k];
 		k++;
 	}
 	
-	while (biggest & max_range)
-		max_range++;
+	while (!(biggest_num & max_range))
+		max_range >> 1;
 	
 	while (bit_range <= max_range)
 	{
-		a_len = stack_size;
+		a_len = stack_len;
 		while (a_len)
 		{
 			if (*random_number & (mask << bit_range))
