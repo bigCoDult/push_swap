@@ -1,33 +1,33 @@
 #include "push_swap.h"
 
-void	binary_radix_sort(int *random_number)
+void	binary_radix_sort(int stack_size, int *random_number)
 {
 	int a_len;
 	int b_len;
 	int mask;
 	int bit_range;
-	a_len = 10;
+	a_len = stack_size;
 	b_len = 0;
 	mask = 1;
 	bit_range = 0;
 	
-	while (bit_range < 8)
+	while (bit_range < 32)
 	{
-		a_len = 10;
+		a_len = stack_size;
 		while (a_len)
 		{
 			if (*random_number & (mask << bit_range))
 			{
-				// ft_printf("pb\n");
+				ft_printf("pb\n");
 				b_len++;
 			}
-			// else
-				// ft_printf("ra\n");
+			else
+				ft_printf("ra\n");
 			a_len--;
 		}
 		while (b_len)
 		{
-			// ft_printf("pa\n");
+			ft_printf("pa\n");
 			b_len--;
 		}
 		bit_range++;
