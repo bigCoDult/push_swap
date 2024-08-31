@@ -6,12 +6,26 @@ void	binary_radix_sort(int stack_size, int *random_number)
 	int b_len;
 	int mask;
 	int bit_range;
+	int max_range;
+	int biggest = 0;
+	int k;
+	k = 0;
 	a_len = stack_size;
 	b_len = 0;
 	mask = 1;
 	bit_range = 0;
 	
-	while (bit_range < 32)
+	while (k < stack_size)
+	{
+		if (biggest < random_number[k])
+			biggest = random_number[k];
+		k++;
+	}
+	
+	while (biggest & max_range)
+		max_range++;
+	
+	while (bit_range <= max_range)
 	{
 		a_len = stack_size;
 		while (a_len)
