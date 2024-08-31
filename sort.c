@@ -5,16 +5,14 @@ void	binary_radix_sort(int stack_len, int *random_number)
 	int a_len;
 	int b_len;
 	int mask;
-	int bit_range;
-	int max_range;
+	int max_mask;
 	int biggest_num;
 	int k;
 
 	a_len = stack_len;
 	b_len = 0;
 	mask = 1;
-	bit_range = 1;
-	max_range = 1 << 30;
+	max_mask = 1 << 30;
 	biggest_num = random_number[0];
 	k = 1;
 	
@@ -24,17 +22,17 @@ void	binary_radix_sort(int stack_len, int *random_number)
 			biggest_num = random_number[k];
 		k++;
 	}
-	while (!(biggest_num & max_range))
-		max_range = max_range >> 1;
+	while (!(biggest_num & max_mask))
+		max_mask = max_mask >> 1;
 	
-	// ft_printf("max_range : %d\n", max_range);
+	// ft_printf("max_mask : %d\n", max_mask);
 	
-	while (bit_range <= max_range)
+	while (mask <= max_mask)
 	{
 		a_len = stack_len;
 		while (a_len)
 		{
-			if (*random_number & (mask << bit_range))
+			if (*random_number & (mask))
 			{
 				ft_printf("pb\n");
 				b_len++;
@@ -48,10 +46,11 @@ void	binary_radix_sort(int stack_len, int *random_number)
 			ft_printf("pa\n");
 			b_len--;
 		}
-		bit_range = bit_range << 1;
+		mask = mask << 1;
 	}
 	return ;
 }
+
 
 
 /*
