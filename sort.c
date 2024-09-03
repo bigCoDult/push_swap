@@ -8,14 +8,23 @@ void	binary_radix_sort(int stack_len, int *random_number)
 	int max_mask;
 	int biggest_num;
 	int k;
-
+	int i;
+	int *a_stack;
+	int *b_stack;
 	a_len = stack_len;
 	b_len = 0;
 	mask = 1;
 	max_mask = 1 << 30;
 	biggest_num = random_number[0];
+	a_stack = (int *)malloc(sizeof(int) * stack_len);
+	b_stack = (int *)malloc(sizeof(int) * stack_len);
 	k = 1;
-	
+	while (k < stack_len)
+	{
+		a_stack[k] = random_number[k];
+		k++;
+	}
+	k = 0;
 	while (k < stack_len)
 	{
 		if (biggest_num < random_number[k])
@@ -24,29 +33,54 @@ void	binary_radix_sort(int stack_len, int *random_number)
 	}
 	while (!(biggest_num & max_mask))
 		max_mask = max_mask >> 1;
-	
 	// ft_printf("max_mask : %d\n", max_mask);
-	
 	while (mask <= max_mask)
 	{
+		ft_printf("mask : %d\n", mask);
 		a_len = stack_len;
+		i = 0;
+		// 마스킹 없음
+		// 1 3 2 5 4
+		// 001 011 010 101 100
+		
+		
+		
+		// 마스킹 001
+		// 1 3 5 2 4
+		// 001 011 101 010 100
+		
+		// 마스킹 010
+		// 3 5 1 2 4
+		// 011 101 001 010 100
+		
+		// 마스킹 100
+		// 2 4 3 5 1
+		// 010 100 011 101 001
+		
 		while (a_len)
 		{
-			if (*random_number & (mask))
+			if (random_number[i] & (mask))
 			{
+				ft_printf("number[%d] : %d - ", i, random_number[i]);
 				ft_printf("pb\n");
 				b_len++;
 			}
 			else
+			{
+				ft_printf("number[%d] : %d - ", i, random_number[i]);
 				ft_printf("ra\n");
+			}
+			i++;
 			a_len--;
 		}
 		while (b_len)
 		{
-			ft_printf("pa\n");
+			// ft_printf("pa\n");
 			b_len--;
 		}
+		// printf("mask before : %d\n", mask);
 		mask = mask << 1;
+		// printf("mask after : %d\n", mask);
 	}
 	return ;
 }
