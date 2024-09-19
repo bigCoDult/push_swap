@@ -4,8 +4,10 @@ int validate_str_stack(char **str_stack)
 {
 	int i;
 	int k;
+	int str_i;
 	i = 0;
 	k = 0;
+	str_i = 0;
 	
 	while (str_stack[i])
 	{
@@ -18,8 +20,13 @@ int validate_str_stack(char **str_stack)
 		}
 		else
 		{
-			ft_printf("\nwrong input\n");
-			return (0);
+			ft_printf("\n");
+			ft_printf("wrong input\n");
+			while (str_stack[str_i])
+				free(str_stack[str_i++]);
+			free(str_stack);
+			ft_printf("\n");
+			exit(0);
 		}
 	}
 	// int check = 5;

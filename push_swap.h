@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/19 18:15:14 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/19 18:35:30 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ char **set_str_stack(int argc, char** argv);
 int validate_str_stack(char **str_stack);
 int ft_issign(char c);
 int *atoi_stack(char **str_stack);
+void free_stack(char **str_stack, int *num_stack);
 
 #endif /* PUSH_SWAP_H */
