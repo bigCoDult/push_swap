@@ -12,6 +12,7 @@ SRC = \
 			sort.c \
 			parse.c \
 			argv_to_str.c \
+			validate_stack.c \
 
 OBJ = $(SRC:.c=.o)
 

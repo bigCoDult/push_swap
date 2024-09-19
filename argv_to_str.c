@@ -7,6 +7,7 @@ char **set_str_stack(int argc, char** argv)
 	int line_len;
 	int i;
 	char **str_stack;
+	char *tmp_line;
 
 	line_len = 0;
 	seperater_space = argc;
@@ -19,18 +20,22 @@ char **set_str_stack(int argc, char** argv)
 	line = ft_calloc(seperater_space + line_len + 1, sizeof(char));
 	while (--seperater_space)
 	{
+		tmp_line = line;
 		line = ft_strjoin(line, argv[++i]);
+		free(tmp_line);
+		tmp_line = line;
 		line = ft_strjoin(line, " ");
+		free(tmp_line);
 	}
 	// printf("line : %s\n", line);
 	str_stack = ft_split(line, ' ');
 	free(line);
-	// i = 0;
-	// while (str_stack[i])
-	// {
-	// 	printf("str_stack[%d] : %s\n", i, str_stack[i]);
-	// 	i++;
-	// }
+	i = 0;
+	while (str_stack[i])
+	{
+		printf("str_stack[%d] : %s\n", i, str_stack[i]);
+		i++;
+	}
 	return (str_stack);
 }
 
