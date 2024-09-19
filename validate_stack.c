@@ -11,21 +11,21 @@ int validate_str_stack(char **str_stack)
 	
 	while (str_stack[i])
 	{
-		if (ft_issign(str_stack[i][k]) || ft_isdigit(str_stack[i][k]))
+		if (ft_issign(str_stack[i][k]))
 			k++;
-		else if (str_stack[i][k] == '\0')
+		while (ft_isdigit(str_stack[i][k]))
+			k++;
+		if (str_stack[i][k] == '\0')
 		{
 			i++;
 			k = 0;
 		}
 		else
 		{
-			ft_printf("\n");
-			ft_printf("wrong input\n");
+			ft_printf("\nwrong input\n\n");
 			while (str_stack[str_i])
 				free(str_stack[str_i++]);
 			free(str_stack);
-			ft_printf("\n");
 			exit(0);
 		}
 	}
@@ -37,4 +37,14 @@ int ft_issign(char c)
 	if (c == '-' || c == '+')
 		return (1);
 	return (0);
+}
+
+int validate_inteager(char *str)
+{
+	int i;
+	i = 0;
+	if (ft_issign(str[i]))
+		i++;
+	if (ft_strlen(str) > ft_strlen("2147483647"))
+		retunn (0);
 }
