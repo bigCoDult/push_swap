@@ -28,16 +28,13 @@ int	ft_atoi(char *str)
 	length = 0;
 	while (str[length] && ft_isspace(str[length]))
 		length++;
-	while ((str[length] == '-' || str[length] == '+'))
+	if (str[length] == '-')
 	{
-		if (str[length] == '-')
-		{
-			sign = sign * -1;
-			length++;
-		}
-		else if (str[length] == '+')
-			length++;
+		sign = sign * -1;
+		length++;
 	}
+	else if (str[length] == '+')
+		length++;
 	while (str[length] && (str[length] >= '0' && str[length] <= '9'))
 	{
 		rest = rest * 10 + str[length] - '0';

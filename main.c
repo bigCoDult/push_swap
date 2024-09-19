@@ -17,6 +17,18 @@ int main(int argc, char** argv)
 	
 	ft_printf("%d", num_stack[0]);
 	free_stack(str_stack, num_stack);
+
+
+
+
+
+	ft_printf("original atoi : %d\n", atoi(" --123"));
+
+
+
+
+
+
 	return (0);
 }
 
