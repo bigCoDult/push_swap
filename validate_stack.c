@@ -29,8 +29,6 @@ int validate_str_stack(char **str_stack)
 			exit(0);
 		}
 	}
-	// int check = 5;
-	// ft_printf("str_stack[0][%d] : %s\n", check, str_stack[0][check]);
 	return (1);
 }
 
