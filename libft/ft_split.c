@@ -71,7 +71,6 @@ static void	set_words(char *str, char **words, size_t w_c, size_t *edge_pair)
 		}
 		ft_memmove(words[w_i], str + edge_pair[w_i * 2], word_len);
 		words[w_i][word_len] = '\0';
-		ft_printf("words[%d]	: %s\n", w_i, words[w_i]);
 		w_i++;
 	}
 	return ;

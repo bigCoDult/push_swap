@@ -38,14 +38,14 @@ void	binary_radix_sort(int stack_len, int *random_number)
 	int k;
 	int i;
 	int *a_stack;
-	int *b_stack;
+	// int *b_stack;
 	a_len = stack_len;
 	b_len = 0;
 	mask = 1;
 	max_mask = 1 << 30;
 	biggest_num = random_number[0];
 	a_stack = (int *)malloc(sizeof(int) * stack_len);
-	b_stack = (int *)malloc(sizeof(int) * stack_len);
+	// b_stack = (int *)malloc(sizeof(int) * stack_len);
 	k = 1;
 	while (k < stack_len)
 	{

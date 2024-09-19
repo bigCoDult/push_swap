@@ -11,6 +11,7 @@ SRC = \
 			main.c \
 			sort.c \
 			parse.c \
+			argv_to_str.c \
 
 OBJ = $(SRC:.c=.o)
 

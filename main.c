@@ -3,8 +3,11 @@
 
 int main(int argc, char** argv)
 {
+	char **str_stack;
 	int *stack_a;
-	stack_a = parse(argc, argv);
+	
+	str_stack = **set_str_stack(argc, argv);
+	validate_str_stack(str_stack);
 	// int i = 0;
 	// while (i < argc - 1)
 	// {
@@ -12,7 +15,7 @@ int main(int argc, char** argv)
 	// 	i++;
 	// }
 	// validate_stack(stack_a);
-	binary_radix_sort(argc - 1, stack_a);
-	free(stack_a);
+	// binary_radix_sort(argc - 1, stack_a);
+	// free(stack_a);
 	return (0);
 }
