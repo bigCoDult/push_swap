@@ -5,111 +5,93 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 20:00:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/04/09 13:08:50 by sanbaek          ###   ########.fr       */
+/*   Created: 2024/09/05 14:54:54 by sanbaek           #+#    #+#             */
+/*   Updated: 2024/09/05 14:54:54 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	get_info_length(char const *s, char c)
+static size_t	count_word(char const *str, char separator)
 {
-	size_t	i_i;
-	size_t	s_i;
+	size_t	w_c;
+	size_t	i;
 
-	s_i = 0;
-	i_i = 1;
-	while (s[s_i] != '\0')
+	w_c = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		while (s[s_i] == c)
-			s_i++;
-		if (s[s_i] != '\0')
-		{
-			i_i++;
-			while (s[s_i] != c && s[s_i] != '\0')
-				s_i++;
-			if (s[s_i] != '\0')
-				i_i++;
-		}
+		while (str[i] == separator)
+			i++;
+		if (str[i] != '\0')
+			w_c++;
+		while (str[i] != separator && str[i] != '\0')
+			i++;
 	}
-	return (i_i);
+	return (w_c);
 }
 
-static size_t	*calloc_info(char const *s, char c)
+static void	set_edge_pair(char const *str, char separator, size_t *edge_pair)
 {
-	size_t	*info;
-	size_t	i_i;
+	size_t	i;
+	size_t	k;
 
-	i_i = get_info_length(s, c);
-	info = (size_t *)ft_calloc(i_i + 1, sizeof(size_t));
-	if (info == NULL)
-		return (NULL);
-	info[0] = 0;
-	if (i_i > 1)
-		info[0] = i_i;
-	return (info);
-}
-
-static size_t	*set_info(size_t *info, char const *s, char c)
-{
-	size_t	i_i;
-	size_t	s_i;
-
-	if (info == NULL)
-		return (NULL);
-	s_i = 0;
-	i_i = 1;
-	while (s[s_i] != '\0')
+	i = 0;
+	k = 0;
+	while (str[i] != '\0')
 	{
-		while (s[s_i] == c)
-			s_i++;
-		if (s[s_i] != '\0')
-		{
-			info[i_i++] = s_i;
-			while (s[s_i] != c && s[s_i] != '\0')
-				s_i++;
-			info[i_i++] = s_i - 1;
-		}
+		while (str[i] == separator)
+			i++;
+		if (str[i] != '\0')
+			edge_pair[k++] = i;
+		while (str[i] != separator && str[i] != '\0')
+			i++;
+		if (str[i] == '\0' || str[i] == separator)
+			edge_pair[k++] = i;
 	}
-	return (info);
+	return ;
 }
 
-static char	**set_words(char const *s, char **words, size_t *info)
+static void	set_words(char *str, char **words, size_t w_c, size_t *edge_pair)
 {
-	size_t	i_i;
 	size_t	w_i;
+	size_t	word_len;
 
-	i_i = 1;
 	w_i = 0;
-	while (i_i < info[0])
+	while (w_i < w_c)
 	{
-		words[w_i] = (char *)ft_calloc((info[i_i + 1] - info[i_i] + 1) + 1, 1);
+		word_len = edge_pair[w_i * 2 + 1] - edge_pair[w_i * 2];
+		words[w_i] = (char *)ft_calloc(word_len + 1, sizeof(char));
 		if (words[w_i] == NULL)
 		{
-			free(info);
-			while (w_i)
-				free(words[w_i--]);
-			free(words[0]);
+			while (w_i > 0)
+				free(words[--w_i]);
 			free(words);
-			return (NULL);
+			return ;
 		}
-		ft_memmove(words[w_i++], s + info[i_i], info[i_i + 1] - info[i_i] + 1);
-		i_i += 2;
+		ft_memmove(words[w_i], str + edge_pair[w_i * 2], word_len);
+		words[w_i][word_len] = '\0';
+		ft_printf("words[%d]	: %s\n", w_i, words[w_i]);
+		w_i++;
 	}
-	free(info);
-	return (words);
+	return ;
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *str, char separator)
 {
-	char	**words;
-	size_t	*info;
+	t_sentence	sentence;
 
-	info = set_info(calloc_info(s, c), s, c);
-	if (info == NULL)
+	sentence.w_c = count_word(str, separator);
+	sentence.words = (char **)ft_calloc(sentence.w_c + 1, sizeof(char *));
+	sentence.edge_pair = (size_t *)ft_calloc(sentence.w_c * 2, sizeof(size_t));
+	if (sentence.words == NULL || sentence.edge_pair == NULL)
+	{
+		free(sentence.words);
+		free(sentence.edge_pair);
 		return (NULL);
-	words = (char **)ft_calloc((info[0] / 2 + 1), sizeof(char *));
-	if (words == NULL)
-		return (NULL);
-	return (set_words(s, words, info));
+	}
+	set_edge_pair(str, separator, sentence.edge_pair);
+	set_words((char *)str, sentence.words, sentence.w_c, sentence.edge_pair);
+	free(sentence.edge_pair);
+	return (sentence.words);
 }

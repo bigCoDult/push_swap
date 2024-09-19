@@ -18,8 +18,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 
 	join_s = (char *)ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
-	if (join_s == NULL)
-		return (NULL);
 	i = 0;
 	while (*s1)
 		join_s[i++] = *s1++;

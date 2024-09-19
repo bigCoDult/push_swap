@@ -38,6 +38,7 @@ char	*ft_itoa(int n)
 		str[min_info->length] = (char)((min_info->n2 % 10) + '0');
 		min_info->n2 /= 10;
 	}
+	free(min_info);
 	return (str);
 }
 

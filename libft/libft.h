@@ -49,6 +49,13 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_sentence
+{
+	size_t	w_c;
+	size_t	*edge_pair;
+	char	**words;
+}	t_sentence;
+
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
@@ -82,7 +89,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);
-void 	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_printf(const char *str, ...);
 int		ft_printffmt_cdux(t_etc *etc, va_list ap, char col);
 int		ft_printffmt_sp(t_etc *etc, va_list ap, char col);
@@ -90,9 +97,8 @@ int		ft_printfchar_fd(char c, int fd);
 int		ft_printfstr_fd(char *s, int fd);
 int		ft_printfll_fd(long long int n, int fd);
 int		ft_printfhex_fd(int islower, long long unsigned int n, int fd);
-char	**ft_split(char const *s, char c);
-int	ft_isspace(char c);
+char	**ft_split(char const *str, char separator);
+int		ft_isspace(char c);
 int		ft_atoi(char *str);
-
 
 #endif /* LIBFT_H */
