@@ -39,12 +39,26 @@ int ft_issign(char c)
 	return (0);
 }
 
-int validate_inteager(char *str)
+// int validate_inteager(char *str)
+// {
+// 	int i;
+// 	i = 0;
+// 	if (ft_issign(str[i]))
+// 		i++;
+// 	if (ft_strlen(str) > ft_strlen("2147483647"))
+// 		retunn (0);
+// }
+
+int is_restorable(char *str)
 {
-	int i;
-	i = 0;
-	if (ft_issign(str[i]))
-		i++;
-	if (ft_strlen(str) > ft_strlen("2147483647"))
-		retunn (0);
+	char *tmp_str;
+	tmp_str = (char *)ft_calloc(ft_strlen(str), sizeof(char));
+	tmp_str = ft_memmove(tmp_str, ft_itoa(ft_atoi(str)), ft_strlen(ft_itoa(ft_atoi(str))));
+	if (ft_memcmp(tmp_str, str, ft_strlen(str)))
+	{
+		free(tmp_str);
+		return (0);
+	}
+	free(tmp_str);
+	return (1);
 }

@@ -22,12 +22,12 @@ int main(int argc, char** argv)
 
 
 
-	// ft_printf("original atoi : %d\n", atoi(" --123"));
+	ft_printf("original atoi : %d\n", atoi(" --123"));
 
-	// int a = -+-1;
-	// int b = +-+3;
-	// int c = a + b;
-	// ft_printf("%d\n", c);
+	int a = -+-1;
+	int b = +-+3;
+	int c = a + b;
+	ft_printf("%d\n", c);
 
 
 
