@@ -89,7 +89,7 @@ int is_proper_argv(int argc, char **agrv)
 			else
 			{
 				check_empty = 1;
-				break;
+				break ;
 			}
 		}
 		if (check_empty == 0)
@@ -97,7 +97,6 @@ int is_proper_argv(int argc, char **agrv)
 			ft_printf("input error : empty argv\n\n");
 			return (0);
 		}
-		i++;
 	}
 	return (1);
 }
