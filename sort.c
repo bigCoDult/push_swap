@@ -28,7 +28,37 @@
 // 		넘길 변수가 너무 많다
 // 		함수 나누면 어차피 필요하다
 
-void	binary_radix_sort(int stack_len, int *random_number)
+void binary_radix_sort(t_stack *stack)
+{
+
+}
+
+// pa (push a)
+	// b의 맨 위에 있는 첫 번째 원소를
+	// a의 맨 위에 놓는다.
+void push(int *a_stack, int *b_stack, int stack_len)
+{
+	ft_memset();
+	ft_memmove();
+}
+
+// sa (swap a)
+	// 스택 a의 맨 위에 있는
+	// 두 개의 요소를 스왑
+void swap(int *num_stack, int stack_len)
+{
+	ft_memset();
+	ft_memmove();
+}
+
+
+
+
+
+
+
+
+void	old_binary_radix_sort(int stack_len, int *random_number)
 {
 	int a_len;
 	int b_len;
@@ -64,20 +94,20 @@ void	binary_radix_sort(int stack_len, int *random_number)
 	// ft_printf("max_mask : %d\n", max_mask);
 	while (mask <= max_mask)
 	{
-		ft_printf("mask : %d\n", mask);
+		// ft_printf("mask : %d\n", mask);
 		a_len = stack_len;
 		i = 0;
 		while (a_len)
 		{
 			if (random_number[i] & (mask))
 			{
-				ft_printf("number[%d] : %d - ", i, random_number[i]);
+				// ft_printf("number[%d] : %d - ", i, random_number[i]);
 				ft_printf("pb\n");
 				b_len++;
 			}
 			else
 			{
-				ft_printf("number[%d] : %d - ", i, random_number[i]);
+				// ft_printf("number[%d] : %d - ", i, random_number[i]);
 				ft_printf("ra\n");
 			}
 			i++;
@@ -94,7 +124,6 @@ void	binary_radix_sort(int stack_len, int *random_number)
 	}
 	return ;
 }
-
 
 
 /*

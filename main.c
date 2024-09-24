@@ -16,6 +16,8 @@ int main(int argc, char** argv)
 	{
 		stack->num_stack = atoi_stack(stack->str_stack);
 		// print_stack(stack);
+		binary_radix_sort(stack);
+
 	}
 	
 	free_stack(stack);
