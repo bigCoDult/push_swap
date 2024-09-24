@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/25 02:15:40 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/25 03:56:22 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_stack
 void	old_binary_radix_sort(int stack_len, int *random_number);
 void	binary_radix_sort(t_stack *stack);
 void	ready_sort(t_stack *stack);
-void	set_a_stack(int *a_stack, int *num_stack, int stack_len);
+void	set_ranking_stack(int *target_stack, int *num_stack, int stack_len);
 
 void push(int *dest_stack, int *src_stack, int stack_len);
 void swap(int *target_stack);

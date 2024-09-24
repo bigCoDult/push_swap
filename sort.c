@@ -78,7 +78,7 @@ void ready_sort(t_stack *stack)
 	stack->b_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
 	if (stack->a_stack == NULL || stack->b_stack == NULL)
 		return ;
-	set_a_stack(stack->a_stack, stack->num_stack, stack->stack_len);
+	set_ranking_stack(stack->a_stack, stack->num_stack, stack->stack_len);
 	stack->max_mask = 1 << 30;
 	while (!(stack->stack_len & stack->max_mask))
 		stack->max_mask = stack->max_mask >> 1;
@@ -86,13 +86,13 @@ void ready_sort(t_stack *stack)
 	stack->b_len = stack->a_len - stack->stack_len;
 }
 
-void set_a_stack(int *a_stack, int *num_stack, int stack_len)
+void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 {
 	int i;
 	int k;
 	i = 0;
 	while (i < stack_len)
-		a_stack[i++] = 1;
+		target_stack[i++] = 1;
 	i = 0;
 	while (i < stack_len)
 	{
@@ -100,9 +100,9 @@ void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 		while (k < stack_len)
 		{
 			if (num_stack[i] > num_stack[k])
-				a_stack[i]++;
+				target_stack[i]++;
 			else if (num_stack[i] < num_stack[k])
-				a_stack[k]++;
+				target_stack[k]++;
 			k++;
 		}
 		i++;
