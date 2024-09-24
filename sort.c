@@ -32,17 +32,22 @@ void binary_radix_sort(t_stack *stack)
 {
 	int *a_stack;
 	int *b_stack;
-	a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
-	b_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
-	if (a_stack == NULL || b_stack == NULL)
-		return ;
-	// ft_printf("\nhi\n\n");
-	// free(a_stack);
-	// free(b_stack);
-	set_a_stack(a_stack, stack->num_stack, stack->stack_len);
-
+	int max_mask;
+	ready_sort(stack);
 }
 
+void ready_sort(t_stack *stack)
+{
+	stack->a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	stack->b_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	if (stack->a_stack == NULL || stack->b_stack == NULL)
+		return ;
+	set_a_stack(stack->a_stack, stack->num_stack, stack->stack_len);
+	stack->max_mask = 1 << 30;
+	while (!(stack->stack_len & stack->max_mask))
+		stack->max_mask = stack->max_mask >> 1;
+	ft_printf("max_mask : %d\n", stack->max_mask);
+}
 void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 {
 	int i;
@@ -64,23 +69,21 @@ void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 		}
 		i++;
 	}
-	
-	
-	i = 0;
-	while (i < stack_len)
-	{
-		ft_printf("a_stack[%d] : %d\n", i, a_stack[i]);
-		i++;
-	}
+	// i = 0;
+	// while (i < stack_len)
+	// {
+	// 	ft_printf("a_stack[%d] : %d\n", i, a_stack[i]);
+	// 	i++;
+	// }
 }
 // pa (push a)
 	// b의 맨 위에 있는 첫 번째 원소를
 	// a의 맨 위에 놓는다.
-// void push(int *dest_stack, int *src_stack, int stack_len)
-// {
-// 	ft_memset();
-// 	ft_memmove();
-// }
+void push(int *dest_stack, int *src_stack, int stack_len)
+{
+	ft_memset();
+	ft_memmove();
+}
 
 // sa (swap a)
 	// 스택 a의 맨 위에 있는
