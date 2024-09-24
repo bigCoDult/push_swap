@@ -30,27 +30,75 @@
 
 void binary_radix_sort(t_stack *stack)
 {
+	int *a_stack;
+	int *b_stack;
+	a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	b_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	if (a_stack == NULL || b_stack == NULL)
+		return ;
+	// ft_printf("\nhi\n\n");
+	// free(a_stack);
+	// free(b_stack);
+	set_a_stack(a_stack, stack->num_stack, stack->stack_len);
 
 }
 
+void set_a_stack(int *a_stack, int *num_stack, int stack_len)
+{
+	int i;
+	int k;
+	i = 0;
+	while (i < stack_len)
+		a_stack[i++] = 1;
+	i = 0;
+	while (i < stack_len)
+	{
+		k = i + 1;
+		while (k < stack_len)
+		{
+			if (num_stack[i] > num_stack[k])
+				a_stack[i]++;
+			else if (num_stack[i] < num_stack[k])
+				a_stack[k]++;
+			k++;
+		}
+		i++;
+	}
+	
+	
+	i = 0;
+	while (i < stack_len)
+	{
+		ft_printf("a_stack[%d] : %d\n", i, a_stack[i]);
+		i++;
+	}
+}
 // pa (push a)
 	// b의 맨 위에 있는 첫 번째 원소를
 	// a의 맨 위에 놓는다.
-void push(int *a_stack, int *b_stack, int stack_len)
-{
-	ft_memset();
-	ft_memmove();
-}
+// void push(int *dest_stack, int *src_stack, int stack_len)
+// {
+// 	ft_memset();
+// 	ft_memmove();
+// }
 
 // sa (swap a)
 	// 스택 a의 맨 위에 있는
 	// 두 개의 요소를 스왑
-void swap(int *num_stack, int stack_len)
-{
-	ft_memset();
-	ft_memmove();
-}
+// void swap(int *num_stack, int stack_len)
+// {
+// 	ft_memset();
+// 	ft_memmove();
+// }
 
+// ra(rotate a)
+// 	스택 a의 모든 원소를 1씩 이동시킨다.
+// 	첫 번째 요소가 마지막 요소가 됩니다.
+// void rotate(int *num_stack, int stack_len)
+// {
+// 	ft_memset();
+// 	ft_memmove();
+// }
 
 
 
@@ -141,7 +189,7 @@ void	old_binary_radix_sort(int stack_len, int *random_number)
 	
 	ra(rotate a)
 		스택 a의 모든 원소를 1씩 이동시킨다.
-	첫 번째 요소가 마지막 요소가 됩니다.
+		첫 번째 요소가 마지막 요소가 됩니다.
 	rb(rotate b)
 		스택 b의 모든 요소를 1씩 위로 이동시킨다.
 		첫 번째 요소가 마지막 요소가 됩니다.
