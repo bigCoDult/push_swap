@@ -16,6 +16,7 @@ int validate_str_stack(t_stack *stack)
 			return (0);
 		}
 	}
+	stack->num_stack = atoi_stack(stack->str_stack);
 	if (is_duplicated(stack))
 	{
 		ft_printf("input error : duplicated\n\n");
@@ -60,23 +61,16 @@ int is_duplicated(t_stack *stack)
 {
 	int i;
 	int k;
-	int len;
 	
 	i = 0;
-	while (stack->str_stack[i])
+	while (i < stack->stack_len - 1)
 	{
 		k = i + 1;
 		while (k < stack->stack_len)
 		{
-			if (ft_strlen(stack->str_stack[i]) > ft_strlen(stack->str_stack[k]))
-				len = ft_strlen(stack->str_stack[i]);
-			else
-				len = ft_strlen(stack->str_stack[k]);
-			
-			if (ft_memcmp(stack->str_stack[i], stack->str_stack[k], len) == 0)
+			if (stack->num_stack[i] == stack->num_stack[k])
 				return (1);
-			else
-				k++;
+			k++;
 		}
 		i++;
 	}
