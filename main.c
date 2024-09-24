@@ -17,10 +17,9 @@ int main(int argc, char** argv)
 		stack->num_stack = atoi_stack(stack->str_stack);
 		print_stack(stack);
 	}
-	printf("atoi 		: %d\n", atoi("+000110"));
-	ft_printf("ft_atoi : %d\n", ft_atoi("+000110"));
-
+	
 	free_stack(stack);
+	// write(2, "Error\n", 6);
 	return (0);
 }
 

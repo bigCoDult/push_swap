@@ -9,7 +9,7 @@ int *parse(int argc, char** argv)
 	tmp_argc = argc;
 	if (tmp_argc == 1)
 	{
-		ft_printf("no arguments, delete this error message later\n");
+		// ft_printf("no arguments, delete this error message later\n");
 		exit(1);
 	}
 	// while (tmp_argc > 1)

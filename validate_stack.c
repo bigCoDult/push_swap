@@ -26,25 +26,24 @@ int validate_str_stack(t_stack *stack)
 
 int is_restorable(char *str)
 {
-	char *tmp_str;
-	
-	tmp_str = ft_itoa(ft_atoi(str));
-	if (str[0] == '+')
-	{
-		if (ft_memcmp(tmp_str, str + 1, ft_strlen(str)) != 0)
-		{
-			free(tmp_str);
-			return (0);
-		}
-		else
-		{
-			free(tmp_str);
-			return (1);
-		}
-	}
+	int skip;
+	skip = 0;
+	if (str[0] == '+' || str[0] == '-')
+		skip++;
+	while (str[skip] == '0' && str[skip + 1] != '\0')
+		skip++;
+	if (cmp_itoa_atoi(str + skip) == 0)
+		return (0);
 	else
-	{
-		if (ft_memcmp(tmp_str, str, ft_strlen(str)) != 0)
+		return (1);
+}
+
+int cmp_itoa_atoi(char *str)
+{
+	char *tmp_str;
+	tmp_str = ft_itoa(ft_atoi(str));
+	
+	if (ft_memcmp(tmp_str, str, ft_strlen(str)) != 0)
 		{
 			free(tmp_str);
 			return (0);
@@ -54,8 +53,8 @@ int is_restorable(char *str)
 			free(tmp_str);
 			return (1);
 		}
-	}
 }
+
 
 int is_duplicated(t_stack *stack)
 {

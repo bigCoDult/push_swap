@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/24 12:30:09 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/24 16:06:48 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int is_duplicated(t_stack *stack);
 void print_stack(t_stack *stack);
 int get_stack_len(char *line);
 int is_proper_argv(int argc, char **agrv);
+int cmp_itoa_atoi(char *str);
 
 
 
