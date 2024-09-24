@@ -29,16 +29,8 @@ void set_str_stack(int argc, char** argv, t_stack *stack)
 	}
 	str_stack = ft_split(line, ' ');
 	free(line);
-	i = 0;
-	ft_printf("\n");
-	while (str_stack[i])
-	{
-		ft_printf("str[%d] : %s\n", i, str_stack[i]);
-		i++;
-	}
 	stack->str_stack = str_stack;
 	stack->stack_len = i;
-	ft_printf("\nstack_len : %d\n", stack->stack_len);
 	return ;
 }
 
@@ -46,12 +38,10 @@ void set_str_stack(int argc, char** argv, t_stack *stack)
 int *atoi_stack(char **str_stack)
 {
 	int i;
-	int k;
 	int	stack_len;
 	int *num_stack;
 	
 	i = 0;
-	k = 0;
 	stack_len = 0;
 	while (str_stack[stack_len])
 		stack_len++;
@@ -61,13 +51,5 @@ int *atoi_stack(char **str_stack)
 		num_stack[i] = ft_atoi(str_stack[i]);
 		i++;
 	}
-	k = 0;
-	ft_printf("\n");
-	while (k < stack_len)
-	{
-		ft_printf("num[%d] : %d\n", k, num_stack[k]);
-		k++;
-	}
-	ft_printf("\n");
 	return (num_stack);
 }
