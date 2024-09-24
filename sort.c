@@ -1,21 +1,5 @@
 #include "push_swap.h"
-// push_swap 개선점
-//
-// 	파싱 먼저 완성하기
-// 		이게 과제의 70퍼센트다
-//
-// 	다하면 push() swap() 함수 만들기
-//
-// 	알고리즘은 쉬우니까 마지막에 할것
-// 		나무기둥 4개에 3층건물 쌓으려니 그게 될리가
-//
-//
-// 	링크드 리스트보다 배열로 하는게 쉬울거다
-//
-// 	2진수로 바꾸기?
-// 	인덱싱
-// 		대소 크기번호를 부여
-//
+
 // 	push 함수 swap 함수 만들고
 // 	memset memmove로 배열 세그먼트 순서 바꾸기
 //
@@ -30,10 +14,9 @@
 
 void binary_radix_sort(t_stack *stack)
 {
-	// int *a_stack;
-	// int *b_stack;
-	// int max_mask;
 	ready_sort(stack);
+	
+	;;;
 }
 
 void ready_sort(t_stack *stack)
@@ -46,10 +29,8 @@ void ready_sort(t_stack *stack)
 	stack->max_mask = 1 << 30;
 	while (!(stack->stack_len & stack->max_mask))
 		stack->max_mask = stack->max_mask >> 1;
-	ft_printf("max_mask : %d\n", stack->max_mask);
 	stack->a_len = stack->stack_len;
-	stack->b_len = 0;
-	// stack->b_len = stack->a_len - stack->stack_len;
+	stack->b_len = stack->a_len - stack->stack_len;
 }
 void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 {
@@ -79,32 +60,49 @@ void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 	// 	i++;
 	// }
 }
-// pa (push a)
-	// b의 맨 위에 있는 첫 번째 원소를
-	// a의 맨 위에 놓는다.
-// void push(int *dest_stack, int *src_stack, int stack_len)
-// {
-// 	ft_memset();
-// 	ft_memmove();
-// }
 
-// sa (swap a)
-	// 스택 a의 맨 위에 있는
+// push
+	// src의 맨 위에 있는 첫 번째 원소를
+	// dest의 맨 위에 놓는다.
+void push(int *dest_stack, int *src_stack, int stack_len)
+{
+	ft_memmove(dest_stack + 1, dest_stack, stack_len - 1);
+	dest_stack[0] = src_stack[0];
+	ft_memmove(src_stack, src_stack + 1, stack_len - 1);
+}
+
+// swap
+	// 타켓 스택의 맨 위에 있는
 	// 두 개의 요소를 스왑
-// void swap(int *num_stack, int stack_len)
-// {
-// 	ft_memset();
-// 	ft_memmove();
-// }
+void swap(int *target_stack)
+{
+	int tmp;
+	tmp = target_stack[0];
+	target_stack[0] = target_stack[1];
+	target_stack[1] = tmp;
+}
 
-// ra(rotate a)
-// 	스택 a의 모든 원소를 1씩 이동시킨다.
-// 	첫 번째 요소가 마지막 요소가 됩니다.
-// void rotate(int *num_stack, int stack_len)
-// {
-// 	ft_memset();
-// 	ft_memmove();
-// }
+// rotate
+// 	타켓 스택의 모든 원소를 1씩 앞으로 이동
+// 	첫번째 요소가 마지막 요소가 됨
+void rotate(int *target_stack, int stack_len)
+{
+	int tmp;
+	tmp = target_stack[0];
+	ft_memmove(target_stack, target_stack + 1, stack_len - 1);
+	target_stack[stack_len - 1] = tmp;
+}
+
+// reverse rotate
+// 	타켓 스택의 모든 원소를 1씩 뒤로 이동
+// 	마지막 요소가 첫번째 요소가 됨
+void reverse_rotate(int *target_stack, int stack_len)
+{
+	int tmp;
+	tmp = target_stack[stack_len - 1];
+	ft_memmove(target_stack + 1, target_stack, stack_len - 1);
+	target_stack[0] = tmp;
+}
 
 
 
