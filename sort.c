@@ -24,16 +24,16 @@ void binary_radix_sort(t_stack *stack)
 		i = 0;
 		while (i < stack->a_len)
 		{
-			if (stack->a_stack[0] & mask)
+			if (stack->a_stack[0] >> mask & 0)
 			{
-				ft_printf("pb\n");
+				// ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, stack->stack_len);
 				stack->a_len--;
 				stack->b_len++;
 			}
 			else
 			{
-				ft_printf("ra\n");
+				// ft_printf("ra\n");
 				rotate(stack->a_stack, stack->stack_len);
 			}
 			i++;
@@ -41,7 +41,7 @@ void binary_radix_sort(t_stack *stack)
 		i = 0;
 		while (i < stack->b_len)
 		{
-			ft_printf("pa\n");
+			// ft_printf("pa\n");
 			push(stack->a_stack, stack->b_stack, stack->stack_len);
 			stack->a_len++;
 			stack->b_len--;
@@ -85,6 +85,7 @@ void ready_sort(t_stack *stack)
 	stack->a_len = stack->stack_len;
 	stack->b_len = stack->a_len - stack->stack_len;
 }
+
 void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 {
 	int i;
@@ -106,12 +107,7 @@ void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 		}
 		i++;
 	}
-	// i = 0;
-	// while (i < stack_len)
-	// {
-	// 	ft_printf("a_stack[%d] : %d\n", i, a_stack[i]);
-	// 	i++;
-	// }
+	return ;
 }
 
 // push
