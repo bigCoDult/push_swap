@@ -29,15 +29,31 @@ int is_restorable(char *str)
 	char *tmp_str;
 	
 	tmp_str = ft_itoa(ft_atoi(str));
-	if (ft_memcmp(tmp_str, str, ft_strlen(str)) != 0)
+	if (str[0] == '+')
 	{
-		free(tmp_str);
-		return (0);
+		if (ft_memcmp(tmp_str, str + 1, ft_strlen(str)) != 0)
+		{
+			free(tmp_str);
+			return (0);
+		}
+		else
+		{
+			free(tmp_str);
+			return (1);
+		}
 	}
 	else
 	{
-		free(tmp_str);
-		return (1);
+		if (ft_memcmp(tmp_str, str, ft_strlen(str)) != 0)
+		{
+			free(tmp_str);
+			return (0);
+		}
+		else
+		{
+			free(tmp_str);
+			return (1);
+		}
 	}
 }
 

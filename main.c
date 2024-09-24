@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 		print_stack(stack);
 	}
 	printf("atoi : %d\n", atoi("+10"));
-	ft_printf("atoi : %d\n", ft_atoi("+10"));
+	ft_printf("ft_atoi : %d\n", ft_atoi("+10"));
 
 	free_stack(stack);
 	return (0);
