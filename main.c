@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	if (validate_str_stack(stack))
 	{
 		stack->num_stack = atoi_stack(stack->str_stack);
-		print_stack(stack);
+		// print_stack(stack);
 	}
 	
 	free_stack(stack);
@@ -44,14 +44,12 @@ void print_stack(t_stack *stack)
 	i = 0;
 	k = 0;
 	
-	ft_printf("stack_len : %d\n", stack->stack_len);
-	ft_printf("\n");
 	while (stack->str_stack[i])
 	{
 		ft_printf("str[%d] : %s\n", i, stack->str_stack[i]);
 		i++;
 	}
-	
+	ft_printf("stack_len : %d\n", stack->stack_len);
 	while (k < stack->stack_len)
 	{
 		ft_printf("num[%d] : %d\n", k, stack->num_stack[k]);

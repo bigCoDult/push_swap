@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/24 16:06:48 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/24 18:35:06 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int *parse_single_input(char *str);
 int *parse_several_input(int argc, char **argv);
 void set_str_stack(int argc, char** argv, t_stack *stack);
 int validate_str_stack(t_stack *stack);
-// int ft_issign(char c);
 int *atoi_stack(char **str_stack);
 void free_stack(t_stack *stack);
 int is_restorable(char *str);

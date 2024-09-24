@@ -26,7 +26,7 @@ void set_str_stack(int argc, char** argv, t_stack *stack)
 		line = ft_strjoin(line, " ");
 		free(tmp_line);
 	}
-	ft_printf("line : %s\n", line);
+	ft_printf("\nline : %s\n\n", line);
 	str_stack = ft_split(line, ' ');
 	stack->str_stack = str_stack;
 	stack->stack_len = get_stack_len(line);
