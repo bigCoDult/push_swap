@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/24 10:31:02 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/24 10:57:22 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void free_stack(t_stack *stack);
 int is_restorable(char *str);
 int is_duplicated(t_stack *stack);
 void print_stack(t_stack *stack);
+int get_stack_len(char *line);
 
 
 #endif /* PUSH_SWAP_H */

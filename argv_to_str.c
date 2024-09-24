@@ -27,14 +27,34 @@ void set_str_stack(int argc, char** argv, t_stack *stack)
 		line = ft_strjoin(line, " ");
 		free(tmp_line);
 	}
+	ft_printf("line : %s\n", line);
 	str_stack = ft_split(line, ' ');
-	free(line);
 	stack->str_stack = str_stack;
-	stack->stack_len = i;
+	stack->stack_len = get_stack_len(line);
+	free(line);
 	return ;
 }
 
+int get_stack_len(char *line)
+{
+	int i;
+	int stack_len;
 
+	
+	i = 0;
+	stack_len = 0;
+	while (line[i] != '\0')
+	{
+		while (line[i] == ' ')
+			i++;
+		if (line[i] != ' ' && line[i] != '\0')
+			stack_len++;
+		while (line[i] != ' ' && line[i] != '\0')
+			i++;
+	}
+	return (stack_len);
+}
+	
 int *atoi_stack(char **str_stack)
 {
 	int i;
