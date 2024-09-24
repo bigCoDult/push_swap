@@ -2,45 +2,33 @@
 
 int main(int argc, char** argv)
 {
-	char **str_stack;
-	int *num_stack;
-	
-	str_stack = set_str_stack(argc, argv);
-	validate_str_stack(str_stack);
-	num_stack = atoi_stack(str_stack);
-	
-	
-	
-	
-	
-	
-	
-	// ft_printf("%d", num_stack[0]);
-	free_stack(str_stack, num_stack);
+	t_stack *stack;
+	stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
+	if (stack == NULL)
+		return (1);
+	set_str_stack(argc, argv, stack);
+	if (validate_str_stack(stack))
+		stack->num_stack = atoi_stack(stack->str_stack);
 
+	// ft_printf("just for not unused : %d\n", stack->num_stack[0]);
+	// ft_printf("\n	 atoi : %d\n", atoi(" 001"));
+	// ft_printf("ft_atoi : %d\n", atoi(" 001"));
 
-
-
-
-	ft_printf("original atoi : %d\n", atoi(" --123"));
-
-	int a = -+-1;
-	int b = +-+3;
-	int c = a + b;
-	ft_printf("%d\n", c);
-
-
-
-	return (0);
+	// int a = -+-1;
+	// int b = +-+3;
+	// int c = a + b;
+	// ft_printf("\nc = a + b : %d\n", c);
+	free_stack(stack);
+	// if (validate_str_stack(str_stack))
+	// 	free(num_stack);
 }
 
-void free_stack(char **str_stack, int *num_stack)
+void free_stack(t_stack *stack)
 {
 	int i;
 	
 	i = 0;
-	while (str_stack[i])
-		free(str_stack[i++]);
-	free(str_stack);
-	free(num_stack);
+	while (stack->str_stack[i])
+		free(stack->str_stack[i++]);
+	free(stack->str_stack);
 }

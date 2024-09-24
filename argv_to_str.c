@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-char **set_str_stack(int argc, char** argv)
+void set_str_stack(int argc, char** argv, t_stack *stack)
 {
 	char *line;
 	int seperater_space;
@@ -27,7 +27,6 @@ char **set_str_stack(int argc, char** argv)
 		line = ft_strjoin(line, " ");
 		free(tmp_line);
 	}
-	// ft_printf("line : %s\n", line);
 	str_stack = ft_split(line, ' ');
 	free(line);
 	i = 0;
@@ -37,7 +36,10 @@ char **set_str_stack(int argc, char** argv)
 		ft_printf("str[%d] : %s\n", i, str_stack[i]);
 		i++;
 	}
-	return (str_stack);
+	stack->str_stack = str_stack;
+	stack->stack_len = i;
+	ft_printf("\nstack_len : %d\n", stack->stack_len);
+	return ;
 }
 
 
