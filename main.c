@@ -4,6 +4,8 @@ int main(int argc, char** argv)
 {
 	t_stack *stack;
 	
+	if (!is_proper_argv(argc, argv))
+		return (1);
 	stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	
 	if (stack == NULL)
@@ -15,6 +17,9 @@ int main(int argc, char** argv)
 		stack->num_stack = atoi_stack(stack->str_stack);
 		print_stack(stack);
 	}
+	printf("atoi : %d\n", atoi("+10"));
+	ft_printf("atoi : %d\n", ft_atoi("+10"));
+
 	free_stack(stack);
 	return (0);
 }
@@ -26,7 +31,7 @@ void free_stack(t_stack *stack)
 	i = 0;
 	if (stack->num_stack != NULL)
 		free(stack->num_stack);
-	while (stack->str_stack[i])
+	while (i < stack->stack_len)
 		free(stack->str_stack[i++]);
 	free(stack->str_stack);
 	free(stack);

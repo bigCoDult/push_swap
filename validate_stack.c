@@ -67,3 +67,37 @@ int is_duplicated(t_stack *stack)
 	}
 	return (0);
 }
+
+int is_proper_argv(int argc, char **agrv)
+{
+	int i;
+	int k;
+	int check_empty;
+	i = 0;
+	k = 0;
+	
+	if (argc == 1)
+		return (0);
+	while (++i < argc)
+	{
+		check_empty = 0;
+		k = 0;
+		while (agrv[i][k] != '\0')
+		{
+			if (agrv[i][k] == ' ')
+				k++;
+			else
+			{
+				check_empty = 1;
+				break;
+			}
+		}
+		if (check_empty == 0)
+		{
+			ft_printf("input error : empty argv\n\n");
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}

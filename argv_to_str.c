@@ -12,7 +12,6 @@ void set_str_stack(int argc, char** argv, t_stack *stack)
 	line_len = 0;
 	seperater_space = argc;
 	i = 0;
-	
 	while (--seperater_space)
 		line_len += ft_strlen(argv[seperater_space]);
 	
