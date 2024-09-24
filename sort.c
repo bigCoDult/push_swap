@@ -30,9 +30,9 @@
 
 void binary_radix_sort(t_stack *stack)
 {
-	int *a_stack;
-	int *b_stack;
-	int max_mask;
+	// int *a_stack;
+	// int *b_stack;
+	// int max_mask;
 	ready_sort(stack);
 }
 
@@ -47,6 +47,9 @@ void ready_sort(t_stack *stack)
 	while (!(stack->stack_len & stack->max_mask))
 		stack->max_mask = stack->max_mask >> 1;
 	ft_printf("max_mask : %d\n", stack->max_mask);
+	stack->a_len = stack->stack_len;
+	stack->b_len = 0;
+	// stack->b_len = stack->a_len - stack->stack_len;
 }
 void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 {
@@ -79,11 +82,11 @@ void set_a_stack(int *a_stack, int *num_stack, int stack_len)
 // pa (push a)
 	// b의 맨 위에 있는 첫 번째 원소를
 	// a의 맨 위에 놓는다.
-void push(int *dest_stack, int *src_stack, int stack_len)
-{
-	ft_memset();
-	ft_memmove();
-}
+// void push(int *dest_stack, int *src_stack, int stack_len)
+// {
+// 	ft_memset();
+// 	ft_memmove();
+// }
 
 // sa (swap a)
 	// 스택 a의 맨 위에 있는

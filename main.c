@@ -35,6 +35,8 @@ void free_stack(t_stack *stack)
 	while (i < stack->stack_len)
 		free(stack->str_stack[i++]);
 	free(stack->str_stack);
+	free(stack->a_stack);
+	free(stack->b_stack);
 	free(stack);
 }
 
