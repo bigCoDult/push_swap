@@ -19,8 +19,7 @@ int main(int argc, char** argv)
 	// int c = a + b;
 	// ft_printf("\nc = a + b : %d\n", c);
 	free_stack(stack);
-	// if (validate_str_stack(str_stack))
-	// 	free(num_stack);
+	return (0);
 }
 
 void free_stack(t_stack *stack)
@@ -28,7 +27,10 @@ void free_stack(t_stack *stack)
 	int i;
 	
 	i = 0;
+	if (validate_str_stack(stack))
+		free(stack->num_stack);
 	while (stack->str_stack[i])
 		free(stack->str_stack[i++]);
 	free(stack->str_stack);
+	free(stack);
 }

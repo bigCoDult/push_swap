@@ -16,11 +16,11 @@ int validate_str_stack(t_stack *stack)
 			return (0);
 		}
 	}
-	// if (is_duplicated(stack))
-	// {
-	// 	ft_printf("\nduplicated input\n\n");
-	// 	return (0);
-	// }
+	if (is_duplicated(stack))
+	{
+		ft_printf("\nduplicated input\n\n");
+		return (0);
+	}
 	return (1);
 }
 // int validate_str_stack(char **str_stack)
@@ -77,8 +77,7 @@ int is_restorable(char *str)
 	char *tmp_str;
 	
 	tmp_str = (char *)ft_calloc(ft_strlen(str), sizeof(char));
-	tmp_str = ft_memmove(tmp_str, ft_itoa(ft_atoi(str)), ft_strlen(ft_itoa(ft_atoi(str))));
-	
+	tmp_str = ft_itoa(ft_atoi(str));
 	if (ft_memcmp(tmp_str, str, ft_strlen(str)))
 	{
 		free(tmp_str);
@@ -101,14 +100,14 @@ int is_duplicated(t_stack *stack)
 	while (stack->str_stack[i])
 	{
 		k = i + 1;
-		while (i < stack->stack_len)
+		while (k < stack->stack_len)
 		{
 			if (ft_strlen(stack->str_stack[i]) < ft_strlen(stack->str_stack[k]))
 				len = ft_strlen(stack->str_stack[i]);
 			else
 				len = ft_strlen(stack->str_stack[k]);
 			
-			if (ft_memcmp(stack->str_stack[i], stack->str_stack[k], len))
+			if (ft_memcmp(stack->str_stack[i], stack->str_stack[k], len) == 0)
 				return (1);
 			else
 				k++;
