@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/25 01:16:08 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/25 02:15:40 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ void	binary_radix_sort(t_stack *stack);
 void	ready_sort(t_stack *stack);
 void	set_a_stack(int *a_stack, int *num_stack, int stack_len);
 
+void push(int *dest_stack, int *src_stack, int stack_len);
+void swap(int *target_stack);
+void rotate(int *target_stack, int stack_len);
+void reverse_rotate(int *target_stack, int stack_len);
+
+
+
+
+void print_stack(int *target_stack, int stack_len);
 
 
 
@@ -53,7 +62,6 @@ int		*atoi_stack(char **str_stack);
 void	free_stack(t_stack *stack);
 int		is_restorable(char *str);
 int		is_duplicated(t_stack *stack);
-void	print_stack(t_stack *stack);
 int		get_stack_len(char *line);
 int		is_proper_argv(int argc, char **agrv);
 int		cmp_itoa_atoi(char *str);

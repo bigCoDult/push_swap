@@ -14,10 +14,63 @@
 
 void binary_radix_sort(t_stack *stack)
 {
+	int i;
+	i = 0;
+	int mask;
+	mask = 1;
 	ready_sort(stack);
-	
-	;;;
+	while (mask <= stack->max_mask)
+	{
+		i = 0;
+		while (i < stack->a_len)
+		{
+			if (stack->a_stack[0] & mask)
+			{
+				ft_printf("pb\n");
+				push(stack->b_stack, stack->a_stack, stack->stack_len);
+				stack->a_len--;
+				stack->b_len++;
+			}
+			else
+			{
+				ft_printf("ra\n");
+				rotate(stack->a_stack, stack->stack_len);
+			}
+			i++;
+		}
+		i = 0;
+		while (i < stack->b_len)
+		{
+			ft_printf("pa\n");
+			push(stack->a_stack, stack->b_stack, stack->stack_len);
+			stack->a_len++;
+			stack->b_len--;
+		}
+		mask = mask << 1;
+	}
+	return ;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void ready_sort(t_stack *stack)
 {
@@ -144,6 +197,15 @@ void	old_binary_radix_sort(int stack_len, int *random_number)
 	while (!(biggest_num & max_mask))
 		max_mask = max_mask >> 1;
 	// ft_printf("max_mask : %d\n", max_mask);
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	while (mask <= max_mask)
 	{
 		// ft_printf("mask : %d\n", mask);
@@ -167,7 +229,7 @@ void	old_binary_radix_sort(int stack_len, int *random_number)
 		}
 		while (b_len)
 		{
-			// ft_printf("pa\n");
+			ft_printf("pa\n");
 			b_len--;
 		}
 		// printf("mask before : %d\n", mask);

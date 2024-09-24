@@ -15,10 +15,10 @@ int main(int argc, char** argv)
 	if (validate_str_stack(stack))
 	{
 		stack->num_stack = atoi_stack(stack->str_stack);
-		// print_stack(stack);
 		binary_radix_sort(stack);
-
-	}
+		print_stack(stack->num_stack, stack->stack_len);
+		print_stack(stack->a_stack, stack->stack_len);
+		}
 	
 	free_stack(stack);
 	// write(2, "Error\n", 6);
@@ -40,24 +40,16 @@ void free_stack(t_stack *stack)
 	free(stack);
 }
 
-void print_stack(t_stack *stack)
+void print_stack(int *target_stack, int stack_len)
 {
 	int i;
-	int k;
 	
 	i = 0;
-	k = 0;
-	
-	while (stack->str_stack[i])
+	ft_printf("\n");
+	while (i < stack_len)
 	{
-		ft_printf("str[%d] : %s\n", i, stack->str_stack[i]);
+		ft_printf("targer_stack[%d] : %d\n", i, target_stack[i]);
 		i++;
 	}
-	ft_printf("stack_len : %d\n", stack->stack_len);
-	while (k < stack->stack_len)
-	{
-		ft_printf("num[%d] : %d\n", k, stack->num_stack[k]);
-		k++;
-	}
-	ft_printf("\n");
+	return ;
 }
