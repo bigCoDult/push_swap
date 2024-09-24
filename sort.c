@@ -51,27 +51,6 @@ void binary_radix_sort(t_stack *stack)
 	return ;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void ready_sort(t_stack *stack)
 {
 	stack->a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
@@ -107,6 +86,7 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 		}
 		i++;
 	}
+	print_stack(target_stack, stack_len);
 	return ;
 }
 
