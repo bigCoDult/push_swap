@@ -17,8 +17,8 @@ int main(int argc, char** argv)
 		stack->num_stack = atoi_stack(stack->str_stack);
 		print_stack(stack);
 	}
-	printf("atoi : %d\n", atoi("+10"));
-	ft_printf("ft_atoi : %d\n", ft_atoi("+10"));
+	printf("atoi 		: %d\n", atoi("+000110"));
+	ft_printf("ft_atoi : %d\n", ft_atoi("+000110"));
 
 	free_stack(stack);
 	return (0);
@@ -45,7 +45,7 @@ void print_stack(t_stack *stack)
 	i = 0;
 	k = 0;
 	
-	ft_printf("\nstack_len : %d\n", stack->stack_len);
+	ft_printf("stack_len : %d\n", stack->stack_len);
 	ft_printf("\n");
 	while (stack->str_stack[i])
 	{
@@ -53,7 +53,6 @@ void print_stack(t_stack *stack)
 		i++;
 	}
 	
-	ft_printf("\n");
 	while (k < stack->stack_len)
 	{
 		ft_printf("num[%d] : %d\n", k, stack->num_stack[k]);
