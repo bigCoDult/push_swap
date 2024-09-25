@@ -17,14 +17,14 @@ void binary_radix_sort(t_stack *stack)
 	int i;
 	i = 0;
 	int mask;
-	mask = 1;
+	mask = 0;
 	ready_sort(stack);
 	while (mask <= stack->max_mask)
 	{
 		i = 0;
 		while (i < stack->a_len)
 		{
-			if (stack->a_stack[0] >> mask & 0)
+			if (stack->a_stack[0] >> mask & 1)
 			{
 				// ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, stack->stack_len);
@@ -46,7 +46,7 @@ void binary_radix_sort(t_stack *stack)
 			stack->a_len++;
 			stack->b_len--;
 		}
-		mask = mask << 1;
+		mask++;
 	}
 	return ;
 }
@@ -90,44 +90,41 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 	return ;
 }
 
-// push
-	// src의 맨 위에 있는 첫 번째 원소를
-	// dest의 맨 위에 놓는다.
 void push(int *dest_stack, int *src_stack, int stack_len)
 {
 	ft_memmove(dest_stack + 1, dest_stack, stack_len - 1);
 	dest_stack[0] = src_stack[0];
 	ft_memmove(src_stack, src_stack + 1, stack_len - 1);
+	// src_stack[stack_len]이 이제 비어있어야 함
+		// 0 박으면 됨?
+		// len 쓰니까 안박아도 됨?
+		// 근데 0 있으면 잘못된걸 체크 가능
+	// dest_len, src_len을 인자로 받아야 함, stack_len 말고
+	// 아무튼 이 방향으로 조정 필요함
 }
 
-// swap
-	// 타켓 스택의 맨 위에 있는
-	// 두 개의 요소를 스왑
 void swap(int *target_stack)
 {
 	int tmp;
+	
 	tmp = target_stack[0];
 	target_stack[0] = target_stack[1];
 	target_stack[1] = tmp;
 }
 
-// rotate
-// 	타켓 스택의 모든 원소를 1씩 앞으로 이동
-// 	첫번째 요소가 마지막 요소가 됨
 void rotate(int *target_stack, int stack_len)
 {
 	int tmp;
+	
 	tmp = target_stack[0];
 	ft_memmove(target_stack, target_stack + 1, stack_len - 1);
 	target_stack[stack_len - 1] = tmp;
 }
 
-// reverse rotate
-// 	타켓 스택의 모든 원소를 1씩 뒤로 이동
-// 	마지막 요소가 첫번째 요소가 됨
 void reverse_rotate(int *target_stack, int stack_len)
 {
 	int tmp;
+	
 	tmp = target_stack[stack_len - 1];
 	ft_memmove(target_stack + 1, target_stack, stack_len - 1);
 	target_stack[0] = tmp;
