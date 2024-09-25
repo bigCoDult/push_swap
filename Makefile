@@ -8,10 +8,9 @@ LIBFT = $(LIBFT_DIR)/libft.a
 INC = -I$(LIBFT_DIR)
 
 SRC = \
+			argv_to_str.c \
 			main.c \
 			sort.c \
-			parse.c \
-			argv_to_str.c \
 			validate_stack.c \
 
 OBJ = $(SRC:.c=.o)
