@@ -29,6 +29,8 @@ int is_restorable(char *str)
 {
 	int skip;
 	skip = 0;
+	if (ft_memcmp(str, "-2147483648", 12) == 0)
+		return (1);
 	if (str[0] == '+' || str[0] == '-')
 		skip++;
 	while (str[skip] == '0' && str[skip + 1] != '\0')
