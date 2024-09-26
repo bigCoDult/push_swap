@@ -22,15 +22,15 @@
 
 void binary_radix_sort(t_stack *stack)
 {
-	int i;
+	// int i;
 	int mask;
 	mask = 0;
 	ready_sort(stack);
 	while (mask <= stack->max_mask)
 	{
-		i = 0;
+		// i = 0;
 		ft_printf("\nmask : %d\n", mask);
-		while (i < stack->a_len)
+		while (stack->a_len >= 0) // 문제부분
 		{
 			if ((stack->a_stack[0] >> mask & 1) == 0)
 			{
@@ -42,7 +42,10 @@ void binary_radix_sort(t_stack *stack)
 				ft_printf("ra\n");
 				rotate(stack->a_stack, stack->stack_len);
 			}
-			i++;
+			// i++;
+			// rotate는 i가 필요
+			// push는 i가 불필요
+			// 그걸 감싸는 while의 조건은?
 		}
 		while (stack->b_len > 0)
 		{
