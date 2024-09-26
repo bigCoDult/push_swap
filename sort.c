@@ -12,19 +12,24 @@
 // 		넘길 변수가 너무 많다
 // 		함수 나누면 어차피 필요하다
 
+
+
+
+
+
+
+
+
 void binary_radix_sort(t_stack *stack)
 {
-	int i;
-	i = 0;
 	int mask;
 	mask = 0;
 	ready_sort(stack);
 	while (mask <= stack->max_mask)
 	{
-		i = 0;
-		while (i < stack->a_len)
+		while (stack->a_len > 0)
 		{
-			if (stack->a_stack[0] >> mask & 1)
+			if (!(stack->a_stack[0] >> mask & 1))
 			{
 				ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
@@ -34,10 +39,8 @@ void binary_radix_sort(t_stack *stack)
 				ft_printf("ra\n");
 				rotate(stack->a_stack, stack->stack_len);
 			}
-			i++;
-		}
-		i = 0;
-		while (i < stack->b_len)
+			}
+		while (stack->b_len > 0)
 		{
 			ft_printf("pa\n");
 			push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
@@ -101,12 +104,6 @@ void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 	src_stack[*src_len - 1] = 0;
 	(*src_len)--;
 }
-// src_stack[stack_len]이 이제 비어있어야 함
-	// 0 박으면 됨?
-	// len 쓰니까 안박아도 됨?
-	// 근데 0 있으면 잘못된걸 체크 가능
-// dest_len, src_len을 인자로 받아야 함, stack_len 말고
-// 아무튼 이 방향으로 조정 필요함
 
 void swap(int *target_stack)
 {
