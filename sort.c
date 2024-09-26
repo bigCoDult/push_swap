@@ -27,9 +27,7 @@ void binary_radix_sort(t_stack *stack)
 			if (stack->a_stack[0] >> mask & 1)
 			{
 				ft_printf("pb\n");
-				push(stack->b_stack, stack->a_stack, stack->stack_len);
-				stack->a_len--;
-				stack->b_len++;
+				push(stack->b_stack, stack->a_stack, stack->b_len, stack->a_len);
 			}
 			else
 			{
@@ -42,9 +40,7 @@ void binary_radix_sort(t_stack *stack)
 		while (i < stack->b_len)
 		{
 			ft_printf("pa\n");
-			push(stack->a_stack, stack->b_stack, stack->stack_len);
-			stack->a_len++;
-			stack->b_len--;
+			push(stack->a_stack, stack->b_stack, stack->a_len, stack->b_len);
 		}
 		mask++;
 	}
@@ -90,19 +86,21 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 	return ;
 }
 
-void push(int *dest_stack, int *src_stack, int stack_len)
+void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 {
-	ft_memmove(dest_stack + 1, dest_stack, stack_len - 1);
+	ft_memmove(dest_stack + 1, dest_stack, *dest_len - 1);
 	dest_stack[0] = src_stack[0];
-	ft_memmove(src_stack, src_stack + 1, stack_len - 1);
-	src_stack[stack_len - 1] = 0;
-	// src_stack[stack_len]이 이제 비어있어야 함
-		// 0 박으면 됨?
-		// len 쓰니까 안박아도 됨?
-		// 근데 0 있으면 잘못된걸 체크 가능
-	// dest_len, src_len을 인자로 받아야 함, stack_len 말고
-	// 아무튼 이 방향으로 조정 필요함
+	*dest_len--;
+	ft_memmove(src_stack, src_stack + 1, *src_len - 1);
+	src_stack[*src_len - 1] = 0;
+	*src_len--;
 }
+// src_stack[stack_len]이 이제 비어있어야 함
+	// 0 박으면 됨?
+	// len 쓰니까 안박아도 됨?
+	// 근데 0 있으면 잘못된걸 체크 가능
+// dest_len, src_len을 인자로 받아야 함, stack_len 말고
+// 아무튼 이 방향으로 조정 필요함
 
 void swap(int *target_stack)
 {
