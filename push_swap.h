@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/26 11:28:48 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/26 13:45:46 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void reverse_rotate(int *target_stack, int stack_len);
 
 void print_stack(int *target_stack, int stack_len);
 void print_str_stack(char **str_stack, int stack_len);
+void print_ab(t_stack *stack);
 
 
 

@@ -26,24 +26,29 @@ void binary_radix_sort(t_stack *stack)
 	int mask;
 	mask = 0;
 	ready_sort(stack);
+	// print_stack(stack->a_stack, stack->stack_len);
+	// print_stack(stack->b_stack, stack->stack_len);
+	print_ab(stack);
 	while (mask <= stack->max_mask)
 	{
 		i = 0;
-		ft_printf("\nmask : %d\n", mask);
+		// ft_printf("\n[mask : %d]\n", mask);
 		while (i + (stack->b_len)  < stack->stack_len)
 		{
+			// print_ab(stack);
 			if ((stack->a_stack[0] >> mask & 1) == 0)
 			{
 				ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
-				print_stack(stack->a_stack, stack->stack_len);
+				// print_stack(stack->a_stack, stack->stack_len);
 			}
 			else
 			{
 				ft_printf("ra\n");
 				rotate(stack->a_stack, stack->stack_len);
 				i++;
-				print_stack(stack->a_stack, stack->stack_len);
+				// print_stack(stack->a_stack, stack->stack_len);
+				//printf a_b 만들것
 			}
 		}
 		while (stack->b_len > 0)
@@ -118,6 +123,7 @@ void ready_sort(t_stack *stack)
 	}
 	stack->a_len = stack->stack_len;
 	stack->b_len = stack->a_len - stack->stack_len;
+	return ;
 }
 
 void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
@@ -141,7 +147,6 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 		}
 		i++;
 	}
-	print_stack(target_stack, stack_len);
 	return ;
 }
 
