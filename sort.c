@@ -30,19 +30,22 @@ void binary_radix_sort(t_stack *stack)
 	{
 		i = 0;
 		ft_printf("\nmask : %d\n", mask);
-		while (i + (stack->b_len) < stack->stack_len)
+		while (i + (stack->b_len)  < stack->stack_len)
 		{
 			if ((stack->a_stack[0] >> mask & 1) == 0)
 			{
 				ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+				print_stack(stack->a_stack, stack->stack_len);
 			}
 			else
 			{
 				ft_printf("ra\n");
 				rotate(stack->a_stack, stack->stack_len);
 				i++;
-			}}
+				print_stack(stack->a_stack, stack->stack_len);
+			}
+		}
 		while (stack->b_len > 0)
 		{
 			ft_printf("pa\n");
@@ -61,10 +64,10 @@ void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 		return ;
 	}
 	if (*dest_len != 0)
-		ft_memmove(dest_stack + 1, dest_stack, *dest_len - 1);
+		ft_memmove(dest_stack + 1, dest_stack, (*dest_len - 1) * sizeof(int));
 	dest_stack[0] = src_stack[0];
 	(*dest_len)++;
-	ft_memmove(src_stack, src_stack + 1, *src_len - 1);
+	ft_memmove(src_stack, src_stack + 1, (*src_len - 1) * sizeof(int));
 	src_stack[*src_len - 1] = 0;
 	(*src_len)--;
 }
@@ -83,7 +86,7 @@ void rotate(int *target_stack, int stack_len)
 	int tmp;
 	
 	tmp = target_stack[0];
-	ft_memmove(target_stack, target_stack + 1, stack_len - 1);
+	ft_memmove(target_stack, target_stack + 1, (stack_len - 1) * sizeof(int));
 	target_stack[stack_len - 1] = tmp;
 }
 
