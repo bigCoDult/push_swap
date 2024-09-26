@@ -26,14 +26,14 @@ void binary_radix_sort(t_stack *stack)
 		{
 			if (stack->a_stack[0] >> mask & 1)
 			{
-				// ft_printf("pb\n");
+				ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, stack->stack_len);
 				stack->a_len--;
 				stack->b_len++;
 			}
 			else
 			{
-				// ft_printf("ra\n");
+				ft_printf("ra\n");
 				rotate(stack->a_stack, stack->stack_len);
 			}
 			i++;
@@ -41,7 +41,7 @@ void binary_radix_sort(t_stack *stack)
 		i = 0;
 		while (i < stack->b_len)
 		{
-			// ft_printf("pa\n");
+			ft_printf("pa\n");
 			push(stack->a_stack, stack->b_stack, stack->stack_len);
 			stack->a_len++;
 			stack->b_len--;
@@ -95,6 +95,7 @@ void push(int *dest_stack, int *src_stack, int stack_len)
 	ft_memmove(dest_stack + 1, dest_stack, stack_len - 1);
 	dest_stack[0] = src_stack[0];
 	ft_memmove(src_stack, src_stack + 1, stack_len - 1);
+	src_stack[stack_len - 1] = 0;
 	// src_stack[stack_len]이 이제 비어있어야 함
 		// 0 박으면 됨?
 		// len 쓰니까 안박아도 됨?
