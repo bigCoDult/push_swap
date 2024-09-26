@@ -30,7 +30,89 @@ void binary_radix_sort(t_stack *stack)
 	ft_printf("\n");
 	ft_printf("original\n\n");
 	print_ab(stack);
-	
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+
+	// ft_printf("rotate\n\n");
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+
+	// ft_printf("push a\n\n");
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+
+	// ft_printf("push b\n\n");
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+	// push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// print_ab(stack);
+
 	ft_printf("rotate\n\n");
 	rotate(stack->a_stack, stack->stack_len);
 	print_ab(stack);
@@ -53,46 +135,64 @@ void binary_radix_sort(t_stack *stack)
 
 	ft_printf("push a\n\n");
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
 
 	ft_printf("push b\n\n");
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
 	print_ab(stack);
-
 
 	// while (mask <= stack->max_mask)
 	// {
@@ -127,11 +227,10 @@ void binary_radix_sort(t_stack *stack)
 
 void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 {
-	ft_printf("dest_len : %d\n", *dest_len);
-	ft_printf("src_len : %d\n", *src_len);
 	if (*src_len == 0)
 	{
 		ft_printf("inproper push\n");
+		// 이 경우 pa, pb 출력이 없어야 함
 		return ;
 	}
 	ft_memmove(dest_stack + 1, dest_stack, (*dest_len) * sizeof(int));
