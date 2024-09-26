@@ -32,29 +32,28 @@ void binary_radix_sort(t_stack *stack)
 	while (mask <= stack->max_mask)
 	{
 		i = 0;
-		// ft_printf("\n[mask : %d]\n", mask);
+		ft_printf("\n[mask : %d]\n", mask);
 		while (i + (stack->b_len)  < stack->stack_len)
 		{
-			// print_ab(stack);
 			if ((stack->a_stack[0] >> mask & 1) == 0)
 			{
 				ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
-				// print_stack(stack->a_stack, stack->stack_len);
+				print_ab(stack);
 			}
 			else
 			{
 				ft_printf("ra\n");
 				rotate(stack->a_stack, stack->stack_len);
 				i++;
-				// print_stack(stack->a_stack, stack->stack_len);
-				//printf a_b 만들것
+				print_ab(stack);
 			}
 		}
 		while (stack->b_len > 0)
 		{
 			ft_printf("pa\n");
 			push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+			print_ab(stack);
 		}
 		mask++;
 	}
