@@ -30,7 +30,7 @@ void binary_radix_sort(t_stack *stack)
 	{
 		i = 0;
 		ft_printf("\nmask : %d\n", mask);
-		while (stack->b_len  + i < stack->stack_len)
+		while (i + (stack->b_len) < stack->stack_len)
 		{
 			if ((stack->a_stack[0] >> mask & 1) == 0)
 			{
@@ -50,50 +50,6 @@ void binary_radix_sort(t_stack *stack)
 		}
 		mask++;
 	}
-	return ;
-}
-
-void ready_sort(t_stack *stack)
-{
-	stack->a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
-	stack->b_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
-	if (stack->a_stack == NULL || stack->b_stack == NULL)
-		return ;
-	set_ranking_stack(stack->a_stack, stack->num_stack, stack->stack_len);
-	stack->tmp_max_mask = 1 << 30;
-	while (!(stack->stack_len & stack->tmp_max_mask))
-		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
-	while (stack->tmp_max_mask > 1)
-	{
-		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
-		stack->max_mask++;
-	}
-	stack->a_len = stack->stack_len;
-	stack->b_len = stack->a_len - stack->stack_len;
-}
-
-void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
-{
-	int i;
-	int k;
-	i = 0;
-	while (i < stack_len)
-		target_stack[i++] = 1;
-	i = 0;
-	while (i < stack_len)
-	{
-		k = i + 1;
-		while (k < stack_len)
-		{
-			if (num_stack[i] > num_stack[k])
-				target_stack[i]++;
-			else if (num_stack[i] < num_stack[k])
-				target_stack[k]++;
-			k++;
-		}
-		i++;
-	}
-	print_stack(target_stack, stack_len);
 	return ;
 }
 
@@ -140,6 +96,51 @@ void reverse_rotate(int *target_stack, int stack_len)
 	target_stack[0] = tmp;
 }
 
+
+
+void ready_sort(t_stack *stack)
+{
+	stack->a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	stack->b_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	if (stack->a_stack == NULL || stack->b_stack == NULL)
+		return ;
+	set_ranking_stack(stack->a_stack, stack->num_stack, stack->stack_len);
+	stack->tmp_max_mask = 1 << 30;
+	while (!(stack->stack_len & stack->tmp_max_mask))
+		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
+	while (stack->tmp_max_mask > 1)
+	{
+		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
+		stack->max_mask++;
+	}
+	stack->a_len = stack->stack_len;
+	stack->b_len = stack->a_len - stack->stack_len;
+}
+
+void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
+{
+	int i;
+	int k;
+	i = 0;
+	while (i < stack_len)
+		target_stack[i++] = 1;
+	i = 0;
+	while (i < stack_len)
+	{
+		k = i + 1;
+		while (k < stack_len)
+		{
+			if (num_stack[i] > num_stack[k])
+				target_stack[i]++;
+			else if (num_stack[i] < num_stack[k])
+				target_stack[k]++;
+			k++;
+		}
+		i++;
+	}
+	print_stack(target_stack, stack_len);
+	return ;
+}
 
 
 
