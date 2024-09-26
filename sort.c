@@ -25,10 +25,9 @@ void binary_radix_sort(t_stack *stack)
 	int i;
 	int mask;
 	mask = 0;
-	// print_stack(stack->a_stack, stack->stack_len);
-	// print_stack(stack->b_stack, stack->stack_len);
 	ready_sort(stack);
 	print_ab(stack);
+
 	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
 	// print_ab(stack);
 	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
@@ -45,6 +44,26 @@ void binary_radix_sort(t_stack *stack)
 	// print_ab(stack);
 	// push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
 	// print_ab(stack);
+
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	 // print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+	// rotate(stack->a_stack, stack->stack_len);
+	// print_ab(stack);
+
 	while (mask <= stack->max_mask)
 	{
 		i = 0;
