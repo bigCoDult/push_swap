@@ -64,7 +64,7 @@ void ready_sort(t_stack *stack)
 	stack->tmp_max_mask = 1 << 30;
 	while (!(stack->stack_len & stack->tmp_max_mask))
 		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
-	while (stack->tmp_max_mask > 0)
+	while (stack->tmp_max_mask > 1)
 	{
 		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
 		stack->max_mask++;
