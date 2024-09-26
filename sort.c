@@ -24,26 +24,26 @@ void binary_radix_sort(t_stack *stack)
 {
 	int i;
 	int mask;
-	i = 0;
 	mask = 0;
 	ready_sort(stack);
 	while (mask <= stack->max_mask)
 	{
-		while (i < stack->stack_len)
+		i = 0;
+		ft_printf("\nmask : %d\n", mask);
+		while (i < stack->a_len)
 		{
 			if ((stack->a_stack[0] >> mask & 1) == 0)
 			{
 				ft_printf("pb\n");
 				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
-				i++;
 			}
 			else
 			{
 				ft_printf("ra\n");
-				rotate(stack->a_stack, stack->stack_len, &(stack->a_len));
-				i++;
+				rotate(stack->a_stack, stack->stack_len);
 			}
-			}
+			i++;
+		}
 		while (stack->b_len > 0)
 		{
 			ft_printf("pa\n");
@@ -123,14 +123,13 @@ void swap(int *target_stack)
 	target_stack[1] = tmp;
 }
 
-void rotate(int *target_stack, int stack_len, int *target_len)
+void rotate(int *target_stack, int stack_len)
 {
 	int tmp;
 	
 	tmp = target_stack[0];
 	ft_memmove(target_stack, target_stack + 1, stack_len - 1);
 	target_stack[stack_len - 1] = tmp;
-	(*target_len)--;
 }
 
 void reverse_rotate(int *target_stack, int stack_len)

@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/26 11:01:40 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/26 11:28:48 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	set_ranking_stack(int *target_stack, int *num_stack, int stack_len);
 
 void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len);
 void swap(int *target_stack);
-void rotate(int *target_stack, int stack_len, int *target_len);
+void rotate(int *target_stack, int stack_len);
 void reverse_rotate(int *target_stack, int stack_len);
 
 
