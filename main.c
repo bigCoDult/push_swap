@@ -14,8 +14,8 @@ int main(int argc, char** argv)
 	set_str_stack(argc, argv, stack);
 	if (validate_str_stack(stack))
 	{
-		print_str_stack(stack->str_stack, stack->stack_len);
-		print_stack(stack->num_stack, stack->stack_len);
+		// print_str_stack(stack->str_stack, stack->stack_len);
+		// print_stack(stack->num_stack, stack->stack_len);
 		binary_radix_sort(stack);
 		// print_stack(stack->a_stack, stack->stack_len);
 		}
