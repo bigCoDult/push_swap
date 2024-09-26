@@ -75,10 +75,10 @@ void print_ab(t_stack *stack)
 	int i;
 	
 	i = 0;
-	ft_printf("\nA		B\n");
+	ft_printf("\n[A		B]\n");
 	while (i < stack->stack_len)
 	{
-		ft_printf("%d		%d\n", stack->a_stack[i], stack->b_stack[i]);
+		ft_printf(" %d		%d\n", stack->a_stack[i], stack->b_stack[i]);
 		i++;
 	}
 	ft_printf("\n");
