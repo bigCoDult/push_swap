@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/25 04:05:18 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/26 09:27:19 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	binary_radix_sort(t_stack *stack);
 void	ready_sort(t_stack *stack);
 void	set_ranking_stack(int *target_stack, int *num_stack, int stack_len);
 
-void push(int *dest_stack, int *src_stack, int stack_len);
+void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len);
 void swap(int *target_stack);
 void rotate(int *target_stack, int stack_len);
 void reverse_rotate(int *target_stack, int stack_len);
