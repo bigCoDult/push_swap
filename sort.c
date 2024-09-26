@@ -88,12 +88,18 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 
 void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 {
-	ft_memmove(dest_stack + 1, dest_stack, *dest_len - 1);
+	if (*src_len == 0)
+	{
+		ft_printf("inproper push\n");
+		return ;
+	}
+	if (*dest_len != 0)
+		ft_memmove(dest_stack + 1, dest_stack, *dest_len - 1);
 	dest_stack[0] = src_stack[0];
-	*dest_len--;
+	(*dest_len)++;
 	ft_memmove(src_stack, src_stack + 1, *src_len - 1);
 	src_stack[*src_len - 1] = 0;
-	*src_len--;
+	(*src_len)--;
 }
 // src_stack[stack_len]이 이제 비어있어야 함
 	// 0 박으면 됨?
