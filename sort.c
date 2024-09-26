@@ -27,7 +27,7 @@ void binary_radix_sort(t_stack *stack)
 			if (stack->a_stack[0] >> mask & 1)
 			{
 				ft_printf("pb\n");
-				push(stack->b_stack, stack->a_stack, stack->b_len, stack->a_len);
+				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
 			}
 			else
 			{
@@ -40,7 +40,7 @@ void binary_radix_sort(t_stack *stack)
 		while (i < stack->b_len)
 		{
 			ft_printf("pa\n");
-			push(stack->a_stack, stack->b_stack, stack->a_len, stack->b_len);
+			push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
 		}
 		mask++;
 	}
