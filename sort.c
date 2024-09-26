@@ -51,7 +51,7 @@ void binary_radix_sort(t_stack *stack)
 	rotate(stack->a_stack, stack->stack_len);
 	print_ab(stack);
 
-	ft_printf("push\n\n");
+	ft_printf("push a\n\n");
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
@@ -70,6 +70,29 @@ void binary_radix_sort(t_stack *stack)
 	print_ab(stack);
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
 	print_ab(stack);
+
+	ft_printf("push b\n\n");
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	print_ab(stack);
+
 
 	// while (mask <= stack->max_mask)
 	// {
@@ -104,6 +127,8 @@ void binary_radix_sort(t_stack *stack)
 
 void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 {
+	ft_printf("dest_len : %d\n", *dest_len);
+	ft_printf("src_len : %d\n", *src_len);
 	if (*src_len == 0)
 	{
 		ft_printf("inproper push\n");
