@@ -22,48 +22,44 @@
 
 void binary_radix_sort(t_stack *stack)
 {
-	int i;
-	int mask;
-	mask = 0;
+	// int i;
+	// int mask;
+	// mask = 0;
 	ready_sort(stack);
 	
-	ft_printf("\n");
-	ft_printf("original\n\n");
-	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
-	print_ab(stack);
+	print_to_find_error(stack);
 
-
-	while (mask <= stack->max_mask)
-	{
-		i = 0;
-		ft_printf("\n[mask : %d]\n", mask);
-		while (i + (stack->b_len)  < stack->stack_len)
-		{
-			if ((stack->a_stack[0] >> mask & 1) == 0)
-			{
-				ft_printf("pb\n");
-				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
-				ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
-				print_ab(stack);
-			}
-			else
-			{
-				ft_printf("ra\n");
-				rotate(stack->a_stack, stack->stack_len);
-				ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
-				i++;
-				print_ab(stack);
-			}
-		}
-		while (stack->b_len > 0)
-		{
-			ft_printf("pa\n");
-			push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
-			ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
-			print_ab(stack);
-		}
-		mask++;
-	}
+	// while (mask <= stack->max_mask)
+	// {
+	// 	i = 0;
+	// 	ft_printf("\n[mask : %d]\n", mask);
+	// 	while (i + (stack->b_len)  < stack->stack_len)
+	// 	{
+	// 		if ((stack->a_stack[0] >> mask & 1) == 0)
+	// 		{
+	// 			ft_printf("pb\n");
+	// 			push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+	// 			ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// 			print_ab(stack);
+	// 		}
+	// 		else
+	// 		{
+	// 			ft_printf("ra\n");
+	// 			rotate(stack->a_stack, stack->stack_len);
+	// 			ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// 			i++;
+	// 			print_ab(stack);
+	// 		}
+	// 	}
+	// 	while (stack->b_len > 0)
+	// 	{
+	// 		ft_printf("pa\n");
+	// 		push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	// 		ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	// 		print_ab(stack);
+	// 	}
+	// 	mask++;
+	// }
 	return ;
 }
 

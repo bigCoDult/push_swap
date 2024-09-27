@@ -10,6 +10,7 @@ INC = -I$(LIBFT_DIR)
 SRC = \
 			argv_to_str.c \
 			main.c \
+			print.c \
 			sort.c \
 			validate_stack.c \
 
