@@ -178,7 +178,7 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 	return ;
 }
 
-void greedy_sort(t_stack *stack)
+void mini_sort(t_stack *stack)
 {
 	return ;
 }
