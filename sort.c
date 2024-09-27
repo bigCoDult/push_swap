@@ -24,9 +24,40 @@ void binary_radix_sort(t_stack *stack)
 {
 	int i;
 	int mask;
-	mask = 0;
+	int *snapshot_a_stack;
+	int *check_a_stack;
+	
+	snapshot_a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	check_a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
 	ready_sort(stack);
-
+	ft_memmove(snapshot_a_stack, stack->a_stack, stack->stack_len * sizeof(int));
+	ft_memmove(check_a_stack, stack->a_stack, stack->stack_len * sizeof(int));
+	mask = 0;
+	while (mask <= stack->max_mask)
+	{
+		i = 0;
+		while (i + (stack->b_len)  < stack->stack_len)
+		{
+			if ((check_a_stack[0] >> mask & 1) == 0)
+			{
+				push(stack->b_stack, check_a_stack, &(stack->b_len), &(stack->a_len));
+			}
+			else
+			{
+				rotate(check_a_stack, stack->a_len);
+				i++;
+			}
+		}
+		while (stack->b_len > 0)
+		{
+			push(check_a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+		}
+		mask++;
+	}
+	if (ft_memcmp(check_a_stack, snapshot_a_stack, stack->stack_len * sizeof(int)) == 0)
+		return ;
+	
+	mask = 0;
 	while (mask <= stack->max_mask)
 	{
 		i = 0;
