@@ -12,6 +12,7 @@ SRC = \
 			main.c \
 			print.c \
 			sort.c \
+			stack_tool.c \
 			validate_stack.c \
 
 OBJ = $(SRC:.c=.o)
