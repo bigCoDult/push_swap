@@ -54,6 +54,13 @@ void binary_radix_sort(t_stack *stack)
 		}
 		mask++;
 	}
+	
+	if (stack->stack_len <= 5)
+	{
+		greedy_sort(stack);
+		return ;
+	}
+	
 	if (ft_memcmp(check_a_stack, snapshot_a_stack, stack->stack_len * sizeof(int)) == 0)
 		return ;
 	
@@ -171,86 +178,12 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 	return ;
 }
 
-
-
-
-
-
-void	old_binary_radix_sort(int stack_len, int *random_number)
+void greedy_sort(t_stack *stack)
 {
-	int a_len;
-	int b_len;
-	int mask;
-	int max_mask;
-	int biggest_num;
-	int k;
-	int i;
-	int *a_stack;
-	// int *b_stack;
-	a_len = stack_len;
-	b_len = 0;
-	mask = 1;
-	max_mask = 1 << 30;
-	biggest_num = random_number[0];
-	a_stack = (int *)malloc(sizeof(int) * stack_len);
-	// b_stack = (int *)malloc(sizeof(int) * stack_len);
-	k = 1;
-	while (k < stack_len)
-	{
-		a_stack[k] = random_number[k];
-		k++;
-	}
-	k = 0;
-	while (k < stack_len)
-	{
-		if (biggest_num < random_number[k])
-			biggest_num = random_number[k];
-		k++;
-	}
-	while (!(biggest_num & max_mask))
-		max_mask = max_mask >> 1;
-	// ft_printf("max_mask : %d\n", max_mask);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	while (mask <= max_mask)
-	{
-		// ft_printf("mask : %d\n", mask);
-		a_len = stack_len;
-		i = 0;
-		while (a_len)
-		{
-			if (random_number[i] & (mask))
-			{
-				// ft_printf("number[%d] : %d - ", i, random_number[i]);
-				ft_printf("pb\n");
-				b_len++;
-			}
-			else
-			{
-				// ft_printf("number[%d] : %d - ", i, random_number[i]);
-				ft_printf("ra\n");
-			}
-			i++;
-			a_len--;
-		}
-		while (b_len)
-		{
-			ft_printf("pa\n");
-			b_len--;
-		}
-		// printf("mask before : %d\n", mask);
-		mask = mask << 1;
-		// printf("mask after : %d\n", mask);
-	}
 	return ;
 }
+
+
 
 
 /*
