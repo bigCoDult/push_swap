@@ -152,6 +152,27 @@ void mini_sort(t_stack *stack)
 void middle_sort(t_stack *stack)
 {
 
+	return ;
+}
+void special_sort(t_stack *stack)
+{
+	if (stack->stack_len == 2)
+	{
+		if (stack->a_stack[0] > stack->a_stack[1])
+			ft_printf("sa\n");
+		return ;
+	}
+	else if (stack->stack_len == 3)
+	{
+		mini_sort(stack);
+		return ;
+	}
+	else if (stack->stack_len <= 6)
+	{
+		middle_sort(stack);
+		return ;
+	}
+	return ;
 }
 
 void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
