@@ -76,3 +76,51 @@ void print_to_find_error(t_stack *stack)
 	
 	return ;
 }
+
+
+
+
+void print_stack(int *target_stack, int stack_len)
+{
+	int i;
+	
+	i = 0;
+	ft_printf("\n");
+	while (i < stack_len)
+	{
+		ft_printf("targer_stack[%d] : %d\n", i, target_stack[i]);
+		i++;
+	}
+	ft_printf("\n");
+	return ;
+}
+
+void print_str_stack(char **str_stack, int stack_len)
+{
+	int i;
+	
+	i = 0;
+	ft_printf("\n");
+	while (i < stack_len)
+	{
+		ft_printf("str_stack[%d] : %s\n", i, str_stack[i]);
+		i++;
+	}
+	ft_printf("\n");
+	return ;
+}
+
+void print_ab(t_stack *stack)
+{
+	int i;
+	
+	i = 0;
+	ft_printf("[A		B]\n");
+	while (i < stack->stack_len)
+	{
+		ft_printf(" %d		%d\n", stack->a_stack[i], stack->b_stack[i]);
+		i++;
+	}
+	ft_printf("\n");
+	return ;
+}
