@@ -55,9 +55,9 @@ void binary_radix_sort(t_stack *stack)
 		mask++;
 	}
 	
-	if (stack->stack_len <= 5)
+	if (stack->stack_len <= 6)
 	{
-		greedy_sort(stack);
+		special_sort(stack);
 		return ;
 	}
 	
@@ -90,6 +90,68 @@ void binary_radix_sort(t_stack *stack)
 		mask++;
 	}
 	return ;
+}
+void mini_sort(t_stack *stack)
+{
+	int i;
+	int biggest;
+	biggest = 0;
+	i = 0;
+	while (i < 3)
+	{
+		if (stack->a_stack[i] > biggest)
+			biggest = stack->a_stack[i];
+		i++;
+	}
+	if (biggest == stack->a_stack[0])
+	{
+		// 3 2 1
+		// 2 1 3
+		// 1 2 3
+		ft_printf("ra\n");
+		if (stack->a_stack[1] > stack->a_stack[2])
+			ft_printf("sa\n");
+		return ;
+	}
+	else if (biggest == stack->a_stack[1])
+	{
+		if (stack->a_stack[0] > stack->a_stack[2])
+		{
+			// 2 3 1
+			// 1 2 3
+			ft_printf("rra\n");
+			return ;
+		}
+		else if (stack->a_stack[0] < stack->a_stack[2])
+		{
+			// 1 3 2
+			// 3 1 2
+			// 1 2 3
+			ft_printf("sa\n");
+			ft_printf("ra\n");
+		}
+	}
+	else if (biggest == stack->a_stack[2])
+	{
+		if (stack->a_stack[0] > stack->a_stack[1])
+		{
+			// 2 1 3
+			// 1 2 3
+			ft_printf("sa\n");
+			return ;
+		}
+		else if (stack->a_stack[0] < stack->a_stack[1])
+		{
+			// 1 2 3
+			return ;
+		}
+	}
+	return ;
+}
+
+void middle_sort(t_stack *stack)
+{
+
 }
 
 void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
@@ -175,11 +237,6 @@ void set_ranking_stack(int *target_stack, int *num_stack, int stack_len)
 		}
 		i++;
 	}
-	return ;
-}
-
-void mini_sort(t_stack *stack)
-{
 	return ;
 }
 
