@@ -149,11 +149,80 @@ void mini_sort(t_stack *stack)
 	return ;
 }
 
-void middle_sort(t_stack *stack)
+void mini_reverse_sort(t_stack *stack)
 {
-
+	int i;
+	int biggest;
+	biggest = 0;
+	i = 0;
+	while (i < 3)
+	{
+		if (stack->a_stack[i] > biggest)
+			biggest = stack->a_stack[i];
+		i++;
+	}
+	if (biggest == stack->a_stack[0])
+	{
+		// 3 2 1
+		// 2 1 3
+		// 1 2 3
+		ft_printf("ra\n");
+		if (stack->a_stack[1] > stack->a_stack[2])
+			ft_printf("sa\n");
+		return ;
+	}
+	else if (biggest == stack->a_stack[1])
+	{
+		if (stack->a_stack[0] > stack->a_stack[2])
+		{
+			// 2 3 1
+			// 1 2 3
+			ft_printf("rra\n");
+			return ;
+		}
+		else if (stack->a_stack[0] < stack->a_stack[2])
+		{
+			// 1 3 2
+			// 3 1 2
+			// 1 2 3
+			ft_printf("sa\n");
+			ft_printf("ra\n");
+		}
+	}
+	else if (biggest == stack->a_stack[2])
+	{
+		if (stack->a_stack[0] > stack->a_stack[1])
+		{
+			// 2 1 3
+			// 1 2 3
+			ft_printf("sa\n");
+			return ;
+		}
+		else if (stack->a_stack[0] < stack->a_stack[1])
+		{
+			// 1 2 3
+			return ;
+		}
+	}
 	return ;
 }
+
+void middle_sort(t_stack *stack)
+{
+	int i;
+	i = 0;
+	while (i < stack->stack_len)
+	{
+		if (stack->a_stack[0] == 4 || stack->a_stack[0] == 5 || stack->a_stack[0] == 6)
+			ft_printf("pb\n");
+		else
+			ft_printf("ra\n");
+	}
+	mini_reverse_sort(stack);
+	ft_printf("pa\nra\npa\nra\npa\nra\n");
+	return ;
+}
+
 void special_sort(t_stack *stack)
 {
 	if (stack->stack_len == 2)
