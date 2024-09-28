@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/28 14:20:51 by sanbaek           #+#    #+#             */
+/*   Updated: 2024/09/28 14:22:01 by sanbaek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int main(int argc, char** argv)
+int	main(int argc, char **argv)
 {
-	t_stack *stack;
-	
+	t_stack	*stack;
+
 	if (!is_proper_argv(argc, argv))
 		return (1);
 	if (argc == 2)
@@ -18,10 +30,10 @@ int main(int argc, char** argv)
 	return (0);
 }
 
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (stack->num_stack != NULL)
 		free(stack->num_stack);
