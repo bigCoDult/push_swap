@@ -55,7 +55,7 @@ void mini_sort(t_stack *stack)
 	{
 		ft_printf("ra\n");
 		rotate(stack->a_stack, stack->a_len);
-		if (stack->a_stack[1] > stack->a_stack[2])
+		if (stack->a_stack[0] > stack->a_stack[1])
 		{
 			ft_printf("sa\n");
 			swap(stack->a_stack);
@@ -68,7 +68,7 @@ void mini_sort(t_stack *stack)
 			ft_printf("rra\n");
 			reverse_rotate(stack->a_stack, stack->a_len);
 		}
-		else if (stack->a_stack[0] < stack->a_stack[2])
+		else if (stack->a_stack[0] < stack->a_stack[1])
 		{
 			ft_printf("sa\nra\n");
 			swap(stack->a_stack);
@@ -93,10 +93,10 @@ void pb_small(t_stack *stack, int k)
 	int i;
 
 	i = 0;
-	ra_far = i;
-	rra_far = stack->a_len - i;
 	while (stack->a_stack[i] != k)
 		i++;
+	ra_far = i;
+	rra_far = stack->a_len - i;
 	if (ra_far < rra_far)
 	{
 		while (ra_far-- > 0)
