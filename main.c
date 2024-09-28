@@ -6,22 +6,15 @@ int main(int argc, char** argv)
 	
 	if (!is_proper_argv(argc, argv))
 		return (1);
+	if (argc == 2)
+		return (0);
 	stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
-	
 	if (stack == NULL)
 		return (1);
-	
 	set_str_stack(argc, argv, stack);
 	if (validate_str_stack(stack))
-	{
-		// print_str_stack(stack->str_stack, stack->stack_len);
-		// print_stack(stack->num_stack, stack->stack_len);
 		binary_radix_sort(stack);
-		// print_stack(stack->a_stack, stack->stack_len);
-		}
-	
 	free_stack(stack);
-	// write(2, "Error\n", 6);
 	return (0);
 }
 
