@@ -32,3 +32,24 @@ void free_stack(t_stack *stack)
 	free(stack->b_stack);
 	free(stack);
 }
+
+void	ra(t_stack *stack)
+{
+	rotate(stack->a_stack, stack->a_len);
+	ft_printf("ra\n");
+	return ;
+}
+
+void	sa(t_stack *stack)
+{
+	swap(stack->a_stack);
+	ft_printf("sa\n");
+	return ;
+}
+
+void	rra(t_stack *stack)
+{
+	reverse_rotate(stack->a_stack, stack->a_len);
+	ft_printf("rra\n");
+	return ;
+}
