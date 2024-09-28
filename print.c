@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/28 18:20:38 by sanbaek           #+#    #+#             */
+/*   Updated: 2024/09/28 18:21:09 by sanbaek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void print_to_find_error(t_stack *stack)
+void	print_to_find_error(t_stack *stack)
 {
 	ft_printf("\n");
 	ft_printf("original\n\n");
@@ -29,10 +41,10 @@ void print_to_find_error(t_stack *stack)
 	return ;
 }
 
-void print_stack(int *target_stack, int stack_len)
+void	print_stack(int *target_stack, int stack_len)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	ft_printf("\n");
 	while (i < stack_len)
@@ -44,10 +56,10 @@ void print_stack(int *target_stack, int stack_len)
 	return ;
 }
 
-void print_str_stack(char **str_stack, int stack_len)
+void	print_str_stack(char **str_stack, int stack_len)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	ft_printf("\n");
 	while (i < stack_len)
@@ -59,10 +71,10 @@ void print_str_stack(char **str_stack, int stack_len)
 	return ;
 }
 
-void print_ab(t_stack *stack)
+void	print_ab(t_stack *stack)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	ft_printf("[A		B]\n");
 	while (i < stack->stack_len)
