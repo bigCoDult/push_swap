@@ -11,7 +11,8 @@ SRC = \
 			argv_to_str.c \
 			main.c \
 			print.c \
-			sort.c \
+			radix_sort.c \
+			special_sort.c \
 			stack_tool.c \
 			validate_stack.c \
 
