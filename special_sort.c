@@ -36,6 +36,9 @@ void middle_sort(t_stack *stack)
 	else if (stack->a_len == 3)
 		mini_sort(stack);
 	ft_printf("pa\npa\npa\n");
+	pa(stack);
+	pa(stack);
+	pa(stack);
 	return ;
 }
 
@@ -47,20 +50,34 @@ void mini_sort(t_stack *stack)
 	if (biggest == stack->a_stack[0])
 	{
 		ft_printf("ra\n");
+		ra(stack);
 		if (stack->a_stack[1] > stack->a_stack[2])
+		{
 			ft_printf("sa\n");
+			sa(stack);
+		}
 	}
 	else if (biggest == stack->a_stack[1])
 	{
 		if (stack->a_stack[0] > stack->a_stack[2])
+		{
 			ft_printf("rra\n");
+			rra(stack);
+		}
 		else if (stack->a_stack[0] < stack->a_stack[2])
+		{
 			ft_printf("sa\nra\n");
+			sa(stack);
+			ra(stack);
+		}
 	}
 	else if (biggest == stack->a_stack[2])
 	{
 		if (stack->a_stack[0] > stack->a_stack[1])
+		{
 			ft_printf("sa\n");
+			sa(stack);
+		}
 	}
 	return ;
 }
@@ -79,14 +96,21 @@ void pb_small(t_stack *stack, int k)
 	if (ra_far < rra_far)
 	{
 		while (ra_far-- > 0)
+		{
 			ft_printf("ra\n");
+			ra(stack);
+		}
 	}
 	else
 	{
 		while (rra_far-- > 0)
+		{
 			ft_printf("rra\n");
+			rra(stack);
+		}
 	}
 	ft_printf("pb\n");
+	pb(stack);
 	return ;
 }
 
