@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 06:51:56 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 07:01:54 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int		is_restorable(char *str);
 int		is_duplicated(t_stack *stack);
 int		get_stack_len(char *line);
 int		is_proper_argv(int argc, char **argv);
+void	set_check_empty(char **argv, int *i, int *k, int *check_empty);
 int		cmp_itoa_atoi(char *str);
 
 #endif /* PUSH_SWAP_H */

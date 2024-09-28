@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 06:54:43 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 06:58:16 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,13 +116,13 @@ int	is_proper_argv(int argc, char **argv)
 
 void	set_check_empty(char **argv, int *i, int *k, int *check_empty)
 {
-	while (argv[*i][*k] != '\0')
+	while (argv[(*i)][(*k)] != '\0')
 	{
-		if (argv[*i][*k] == ' ')
+		if (argv[(*i)][(*k)] == ' ')
 			(*k)++;
 		else
 		{
-			*check_empty = 1;
+			(*check_empty) = 1;
 			break ;
 		}
 	}
