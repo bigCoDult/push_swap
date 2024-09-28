@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/28 08:42:14 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/28 09:22:31 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	special_sort(t_stack *stack);
 void	middle_sort(t_stack *stack);
 void	pb_small(t_stack *stack, int k);
 void	mini_sort(t_stack *stack);
+void	set_biggest(t_stack *stack, int *biggest);
 
 
 void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len);

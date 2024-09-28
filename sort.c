@@ -142,66 +142,16 @@ void middle_sort(t_stack *stack)
 	pb_small(stack, 1);
 	pb_small(stack, 2);
 	pb_small(stack, 3);
-	mini_sort(stack);
-	ft_printf("pa\npa\npa\n");
-	return ;
-}
-
-void mini_sort(t_stack *stack)
-{
-	int i;
-	int biggest;
-	biggest = 0;
-	i = 0;
-	while (i < 3)
-	{
-		if (stack->a_stack[i] > biggest)
-			biggest = stack->a_stack[i];
-		i++;
-	}
-	if (biggest == stack->a_stack[0])
-	{
-		// 3 2 1
-		// 2 1 3
-		// 1 2 3
-		ft_printf("ra\n");
-		if (stack->a_stack[1] > stack->a_stack[2])
-			ft_printf("sa\n");
-		return ;
-	}
-	else if (biggest == stack->a_stack[1])
-	{
-		if (stack->a_stack[0] > stack->a_stack[2])
-		{
-			// 2 3 1
-			// 1 2 3
-			ft_printf("rra\n");
-			return ;
-		}
-		else if (stack->a_stack[0] < stack->a_stack[2])
-		{
-			// 1 3 2
-			// 3 1 2
-			// 1 2 3
-			ft_printf("sa\n");
-			ft_printf("ra\n");
-		}
-	}
-	else if (biggest == stack->a_stack[2])
+	if (stack->a_len == 1)
+		;
+	else if (stack->a_len == 2)
 	{
 		if (stack->a_stack[0] > stack->a_stack[1])
-		{
-			// 2 1 3
-			// 1 2 3
 			ft_printf("sa\n");
-			return ;
-		}
-		else if (stack->a_stack[0] < stack->a_stack[1])
-		{
-			// 1 2 3
-			return ;
-		}
 	}
+	else if (stack->a_len == 3)
+		mini_sort(stack);
+	ft_printf("pa\npa\npa\n");
 	return ;
 }
 
@@ -227,5 +177,48 @@ void pb_small(t_stack *stack, int k)
 			ft_printf("rra\n");
 	}
 	ft_printf("pb\n");
+	return ;
+}
+
+
+void mini_sort(t_stack *stack)
+{
+	int i;
+	int biggest;
+
+	biggest = 0;
+	set_biggest(stack, &biggest);
+	if (biggest == stack->a_stack[0])
+	{
+		ft_printf("ra\n");
+		if (stack->a_stack[1] > stack->a_stack[2])
+			ft_printf("sa\n");
+	}
+	else if (biggest == stack->a_stack[1])
+	{
+		if (stack->a_stack[0] > stack->a_stack[2])
+			ft_printf("rra\n");
+		else if (stack->a_stack[0] < stack->a_stack[2])
+			ft_printf("sa\nra\n");
+	}
+	else if (biggest == stack->a_stack[2])
+	{
+		if (stack->a_stack[0] > stack->a_stack[1])
+			ft_printf("sa\n");
+	}
+	return ;
+}
+
+void set_biggest(t_stack *stack, int *biggest)
+{
+	int i;
+
+	i = 0;
+	while (i < stack->a_len)
+	{
+		if (stack->a_stack[i] > *biggest)
+			*biggest = stack->a_stack[i];
+		i++;
+	}
 	return ;
 }
