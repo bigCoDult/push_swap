@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/28 14:19:36 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/28 18:16:30 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	print_str_stack(char **str_stack, int stack_len);
 void	print_ab(t_stack *stack);
 void	print_to_find_error(t_stack *stack);
 void	set_str_stack(int argc, char **argv, t_stack *stack);
+void	split_str_stack(t_stack *stack, char *line);
 int		validate_str_stack(t_stack *stack);
 int		*atoi_stack(char **str_stack);
 void	free_stack(t_stack *stack);

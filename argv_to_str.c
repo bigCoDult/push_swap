@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:22:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/28 14:48:35 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/28 18:17:01 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,19 @@ void	set_str_stack(int argc, char **argv, t_stack *stack)
 		line = ft_strjoin(line, " ");
 		free(tmp_line);
 	}
+	split_str_stack(stack, line);
 	free(line);
 	return ;
 }
-void func(t_stack *stack, char *line)
+
+void	split_str_stack(t_stack *stack, char *line)
 {
-	set_str_stack(3, (char *[]){"1", "2", "3"}, stack);
+	stack->str_stack = ft_split(line, ' ');
+	stack->str_stack = stack->str_stack;
+	stack->stack_len = get_stack_len(line);
+	return ;
 }
+
 int	get_stack_len(char *line)
 {
 	int	i;
