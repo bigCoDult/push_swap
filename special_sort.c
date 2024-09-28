@@ -5,7 +5,10 @@ void special_sort(t_stack *stack)
 	if (stack->stack_len == 2)
 	{
 		if (stack->a_stack[0] > stack->a_stack[1])
+		{
 			ft_printf("sa\n");
+			swap(stack->a_stack);
+		}
 		return ;
 	}
 	else if (stack->stack_len == 3)
@@ -26,19 +29,20 @@ void middle_sort(t_stack *stack)
 	pb_small(stack, 1);
 	pb_small(stack, 2);
 	pb_small(stack, 3);
-	if (stack->a_len == 1)
-		;
-	else if (stack->a_len == 2)
+	if (stack->a_len == 2)
 	{
 		if (stack->a_stack[0] > stack->a_stack[1])
+		{
 			ft_printf("sa\n");
+			swap(stack->a_stack);
+		}
 	}
 	else if (stack->a_len == 3)
 		mini_sort(stack);
 	ft_printf("pa\npa\npa\n");
-	pa(stack);
-	pa(stack);
-	pa(stack);
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
 	return ;
 }
 
@@ -50,11 +54,11 @@ void mini_sort(t_stack *stack)
 	if (biggest == stack->a_stack[0])
 	{
 		ft_printf("ra\n");
-		ra(stack);
+		rotate(stack->a_stack, stack->a_len);
 		if (stack->a_stack[1] > stack->a_stack[2])
 		{
 			ft_printf("sa\n");
-			sa(stack);
+			swap(stack->a_stack);
 		}
 	}
 	else if (biggest == stack->a_stack[1])
@@ -62,13 +66,13 @@ void mini_sort(t_stack *stack)
 		if (stack->a_stack[0] > stack->a_stack[2])
 		{
 			ft_printf("rra\n");
-			rra(stack);
+			reverse_rotate(stack->a_stack, stack->a_len);
 		}
 		else if (stack->a_stack[0] < stack->a_stack[2])
 		{
 			ft_printf("sa\nra\n");
-			sa(stack);
-			ra(stack);
+			swap(stack->a_stack);
+			rotate(stack->a_stack, stack->a_len);
 		}
 	}
 	else if (biggest == stack->a_stack[2])
@@ -76,7 +80,7 @@ void mini_sort(t_stack *stack)
 		if (stack->a_stack[0] > stack->a_stack[1])
 		{
 			ft_printf("sa\n");
-			sa(stack);
+			swap(stack->a_stack);
 		}
 	}
 	return ;
@@ -98,7 +102,7 @@ void pb_small(t_stack *stack, int k)
 		while (ra_far-- > 0)
 		{
 			ft_printf("ra\n");
-			ra(stack);
+			rotate(stack->a_stack, stack->a_len);
 		}
 	}
 	else
@@ -106,11 +110,11 @@ void pb_small(t_stack *stack, int k)
 		while (rra_far-- > 0)
 		{
 			ft_printf("rra\n");
-			rra(stack);
+			reverse_rotate(stack->a_stack, stack->a_len);
 		}
 	}
 	ft_printf("pb\n");
-	pb(stack);
+	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
 	return ;
 }
 
