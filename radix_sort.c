@@ -10,6 +10,8 @@ void binary_radix_sort(t_stack *stack)
 	snapshot_a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
 	check_a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
 	ready_sort(stack);
+	if (stack->a_len == 0 || stack->a_len == 1)
+		return ;
 	ft_memmove(snapshot_a_stack, stack->a_stack, stack->stack_len * sizeof(int));
 	ft_memmove(check_a_stack, stack->a_stack, stack->stack_len * sizeof(int));
 	mask = 0;
