@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   special_sort.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/28 14:06:53 by sanbaek           #+#    #+#             */
+/*   Updated: 2024/09/28 14:19:46 by sanbaek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void special_sort(t_stack *stack)
+void	special_sort(t_stack *stack)
 {
 	if (stack->stack_len == 2)
 	{
@@ -24,11 +36,14 @@ void special_sort(t_stack *stack)
 	return ;
 }
 
-void middle_sort(t_stack *stack)
+void	middle_sort(t_stack *stack)
 {
 	pb_small(stack, 1);
+	ft_printf("pb\n");
 	pb_small(stack, 2);
+	ft_printf("pb\n");
 	pb_small(stack, 3);
+	ft_printf("pb\n");
 	if (stack->a_len == 2)
 	{
 		if (stack->a_stack[0] > stack->a_stack[1])
@@ -46,60 +61,47 @@ void middle_sort(t_stack *stack)
 	return ;
 }
 
-void mini_sort(t_stack *stack)
+void	mini_sort(t_stack *stack)
 {
-	int biggest;
+	int	biggest;
 
 	set_biggest(stack, &biggest);
 	if (biggest == stack->a_stack[0])
 	{
-		ft_printf("ra\n");
-		rotate(stack->a_stack, stack->a_len);
+		ra(stack);
 		if (stack->a_stack[0] > stack->a_stack[1])
-		{
-			ft_printf("sa\n");
-			swap(stack->a_stack);
-		}
+			sa(stack);
 	}
 	else if (biggest == stack->a_stack[1])
 	{
 		if (stack->a_stack[0] > stack->a_stack[2])
-		{
-			ft_printf("rra\n");
-			reverse_rotate(stack->a_stack, stack->a_len);
-		}
+			rra(stack);
 		else if (stack->a_stack[0] < stack->a_stack[1])
 		{
-			ft_printf("sa\nra\n");
-			swap(stack->a_stack);
-			rotate(stack->a_stack, stack->a_len);
+			sa(stack);
+			ra(stack);
 		}
 	}
 	else if (biggest == stack->a_stack[2])
 	{
 		if (stack->a_stack[0] > stack->a_stack[1])
-		{
-			ft_printf("sa\n");
-			swap(stack->a_stack);
-		}
+			sa(stack);
 	}
 	return ;
 }
 
-void pb_small(t_stack *stack, int k)
+void	pb_small(t_stack *stack, int k)
 {
-	int ra_far;
-	int rra_far;
-	int i;
+	int				i;
+	t_rotate_far	rotate_far;
 
 	i = 0;
 	while (stack->a_stack[i] != k)
 		i++;
-	ra_far = i;
-	rra_far = stack->a_len - i;
-	if (ra_far < rra_far)
+	rotate_far = (t_rotate_far){i, stack->a_len - i};
+	if (rotate_far.ra_far < rotate_far.rra_far)
 	{
-		while (ra_far-- > 0)
+		while (rotate_far.ra_far-- > 0)
 		{
 			ft_printf("ra\n");
 			rotate(stack->a_stack, stack->a_len);
@@ -107,20 +109,19 @@ void pb_small(t_stack *stack, int k)
 	}
 	else
 	{
-		while (rra_far-- > 0)
+		while (rotate_far.rra_far-- > 0)
 		{
 			ft_printf("rra\n");
 			reverse_rotate(stack->a_stack, stack->a_len);
 		}
 	}
-	ft_printf("pb\n");
 	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
 	return ;
 }
 
-void set_biggest(t_stack *stack, int *biggest)
+void	set_biggest(t_stack *stack, int *biggest)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	*biggest = 0;
