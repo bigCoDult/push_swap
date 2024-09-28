@@ -32,4 +32,3 @@ void free_stack(t_stack *stack)
 	free(stack->b_stack);
 	free(stack);
 }
-
