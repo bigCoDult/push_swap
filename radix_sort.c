@@ -21,9 +21,7 @@ void binary_radix_sort(t_stack *stack)
 		while (i + (stack->b_len)  < stack->stack_len)
 		{
 			if ((check_a_stack[0] >> mask & 1) == 0)
-			{
 				push(stack->b_stack, check_a_stack, &(stack->b_len), &(stack->a_len));
-			}
 			else
 			{
 				rotate(check_a_stack, stack->a_len);
@@ -31,9 +29,7 @@ void binary_radix_sort(t_stack *stack)
 			}
 		}
 		while (stack->b_len > 0)
-		{
 			push(check_a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
-		}
 		mask++;
 	}
 	
