@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/28 18:23:24 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 06:54:43 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	is_duplicated(t_stack *stack)
 	return (0);
 }
 
-int	is_proper_argv(int argc, char **agrv)
+int	is_proper_argv(int argc, char **argv)
 {
 	int	i;
 	int	k;
@@ -104,16 +104,7 @@ int	is_proper_argv(int argc, char **agrv)
 	{
 		check_empty = 0;
 		k = 0;
-		while (agrv[i][k] != '\0')
-		{
-			if (agrv[i][k] == ' ')
-				k++;
-			else
-			{
-				check_empty = 1;
-				break ;
-			}
-		}
+		set_check_empty(argv, &i, &k, &check_empty);
 		if (check_empty == 0)
 		{
 			ft_printf("input error : empty argv\n\n");
@@ -121,4 +112,19 @@ int	is_proper_argv(int argc, char **agrv)
 		}
 	}
 	return (1);
+}
+
+void	set_check_empty(char **argv, int *i, int *k, int *check_empty)
+{
+	while (argv[*i][*k] != '\0')
+	{
+		if (argv[*i][*k] == ' ')
+			(*k)++;
+		else
+		{
+			*check_empty = 1;
+			break ;
+		}
+	}
+	return ;
 }
