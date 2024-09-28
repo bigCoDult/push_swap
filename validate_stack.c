@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_stack.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
+/*   Updated: 2024/09/28 18:23:24 by sanbaek          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int validate_str_stack(t_stack *stack)
+int	validate_str_stack(t_stack *stack)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	
 	while (stack->str_stack[i])
 	{
-		
 		if (is_restorable(stack->str_stack[i]))
 			i++;
 		else
@@ -25,9 +36,10 @@ int validate_str_stack(t_stack *stack)
 	return (1);
 }
 
-int is_restorable(char *str)
+int	is_restorable(char *str)
 {
-	int skip;
+	int	skip;
+
 	skip = 0;
 	if (ft_memcmp(str, "-2147483648", 12) == 0)
 		return (1);
@@ -41,29 +53,28 @@ int is_restorable(char *str)
 		return (1);
 }
 
-int cmp_itoa_atoi(char *str)
+int	cmp_itoa_atoi(char *str)
 {
-	char *tmp_str;
+	char	*tmp_str;
+
 	tmp_str = ft_itoa(ft_atoi(str));
-	
 	if (ft_memcmp(tmp_str, str, ft_strlen(str)) != 0)
-		{
-			free(tmp_str);
-			return (0);
-		}
-		else
-		{
-			free(tmp_str);
-			return (1);
-		}
+	{
+		free(tmp_str);
+		return (0);
+	}
+	else
+	{
+		free(tmp_str);
+		return (1);
+	}
 }
 
-
-int is_duplicated(t_stack *stack)
+int	is_duplicated(t_stack *stack)
 {
-	int i;
-	int k;
-	
+	int	i;
+	int	k;
+
 	i = 0;
 	while (i < stack->stack_len - 1)
 	{
@@ -79,14 +90,14 @@ int is_duplicated(t_stack *stack)
 	return (0);
 }
 
-int is_proper_argv(int argc, char **agrv)
+int	is_proper_argv(int argc, char **agrv)
 {
-	int i;
-	int k;
-	int check_empty;
+	int	i;
+	int	k;
+	int	check_empty;
+
 	i = 0;
 	k = 0;
-	
 	if (argc == 1)
 		return (0);
 	while (++i < argc)
