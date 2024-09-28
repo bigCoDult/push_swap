@@ -15,21 +15,21 @@ void push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 	(*src_len)--;
 }
 
-void rotate(int *target_stack, int stack_len)
+void rotate(int *target_stack, int target_len)
 {
 	int tmp;
 	
 	tmp = target_stack[0];
-	ft_memmove(target_stack, target_stack + 1, (stack_len - 1) * sizeof(int));
-	target_stack[stack_len - 1] = tmp;
+	ft_memmove(target_stack, target_stack + 1, (target_len - 1) * sizeof(int));
+	target_stack[target_len - 1] = tmp;
 }
 
-void reverse_rotate(int *target_stack, int stack_len)
+void reverse_rotate(int *target_stack, int target_len)
 {
 	int tmp;
 	
-	tmp = target_stack[stack_len - 1];
-	ft_memmove(target_stack + 1, target_stack, stack_len - 1);
+	tmp = target_stack[target_len - 1];
+	ft_memmove(target_stack + 1, target_stack, (target_len - 1) * sizeof(int));
 	target_stack[0] = tmp;
 }
 
