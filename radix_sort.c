@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 09:29:53 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 10:47:47 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 19:50:01 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,13 @@ int	is_already_sorted(t_stack *stack, int *mask, int *i)
 	(*mask) = 0;
 	sort_sh(stack, snap_a_2, mask, i);
 	if (ft_memcmp(snap_a_2, snap_a_1, stack->stack_len * sizeof(int)) == 0)
+	{
+		free(snap_a_1);
+		free(snap_a_2);
 		return (1);
+	}
+	free(snap_a_1);
+	free(snap_a_2);
 	return (0);
 }
 
