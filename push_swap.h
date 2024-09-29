@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 10:43:10 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 10:58:53 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
-# include <stddef.h>
-// # include <stdio.h>
-// # include <stdlib.h>
-// # include <fcntl.h>
-// # include <unistd.h>
-// # include <stdarg.h>
-// # include <stdlib.h>
 
 typedef struct s_stack
 {
