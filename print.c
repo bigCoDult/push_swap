@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:20:38 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/28 18:21:09 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 09:51:22 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ void	print_to_find_error(t_stack *stack)
 {
 	ft_printf("\n");
 	ft_printf("original\n\n");
-	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
 	print_ab(stack);
 	ft_printf("\n");
 	ft_printf("\n\npush pb\n\n\n");
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
-	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	push(stack->b_st, stack->a_st, &(stack->b_l), &(stack->a_l));
+	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
 	print_ab(stack);
 	ft_printf("\n\npush pa\n\n\n");
-	push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
-	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	push(stack->a_st, stack->b_st, &(stack->a_l), &(stack->b_l));
+	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
 	print_ab(stack);
 	ft_printf("\n\nrotate ra\n\n\n");
-	rotate(stack->a_stack, stack->stack_len);
-	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	rotate(stack->a_st, stack->stack_len);
+	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
 	print_ab(stack);
 	ft_printf("\n\npush pb\n\n\n");
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
-	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	push(stack->b_st, stack->a_st, &(stack->b_l), &(stack->a_l));
+	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
 	print_ab(stack);
-	push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
-	ft_printf("a_len : %d\nb_len : %d\n", stack->a_len, stack->b_len);
+	push(stack->b_st, stack->a_st, &(stack->b_l), &(stack->a_l));
+	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
 	print_ab(stack);
 	return ;
 }
@@ -79,7 +79,7 @@ void	print_ab(t_stack *stack)
 	ft_printf("[A		B]\n");
 	while (i < stack->stack_len)
 	{
-		ft_printf(" %d		%d\n", stack->a_stack[i], stack->b_stack[i]);
+		ft_printf(" %d		%d\n", stack->a_st[i], stack->b_st[i]);
 		i++;
 	}
 	ft_printf("\n");

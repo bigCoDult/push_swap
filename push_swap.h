@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 07:01:54 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 10:43:10 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct s_stack
 	int		stack_len;
 	char	**str_stack;
 	int		*num_stack;
-	int		*a_stack;
-	int		*b_stack;
+	int		*a_st;
+	int		*b_st;
 	int		tmp_max_mask;
 	int		max_mask;
-	int		a_len;
-	int		b_len;
+	int		a_l;
+	int		b_l;
 }	t_stack;
 
 typedef struct s_rotate_far
@@ -42,6 +42,9 @@ typedef struct s_rotate_far
 }	t_rotate_far;
 
 void	binary_radix_sort(t_stack *stack);
+void	do_radix_sort(t_stack *stack, int *mask, int *i);
+int		is_already_sorted(t_stack *stack, int *mask, int *i);
+void	sort_sh(t_stack *stack, int *snap_a_2, int *mask, int *i);
 void	ready_sort(t_stack *stack);
 void	set_ranking_stack(int *target_stack, int *num_stack, int stack_len);
 void	special_sort(t_stack *stack);

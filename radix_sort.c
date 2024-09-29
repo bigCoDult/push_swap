@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 09:29:53 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 09:34:10 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 10:42:39 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,76 +16,94 @@ void	binary_radix_sort(t_stack *stack)
 {
 	int	i;
 	int	mask;
-	int	*snapshot_a_stack;
-	int	*tmp_a;
 
-	snapshot_a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
-	tmp_a = (int *)ft_calloc(stack->stack_len, sizeof(int));
 	ready_sort(stack);
-	if (stack->a_len == 0 || stack->a_len == 1)
+	if (stack->a_l == 0 || stack->a_l == 1)
 		return ;
-	ft_memmove(snapshot_a_stack, stack->a_stack, stack->stack_len * 4);
-	ft_memmove(tmp_a, stack->a_stack, stack->stack_len * sizeof(int));
-	mask = 0;
-	while (mask <= stack->max_mask)
-	{
-		i = 0;
-		while (i + stack->b_len < stack->stack_len)
-		{
-			if ((tmp_a[0] >> mask & 1) == 0)
-				push(stack->b_stack, tmp_a, &(stack->b_len), &(stack->a_len));
-			else
-			{
-				rotate(tmp_a, stack->a_len);
-				i++;
-			}
-		}
-		while (stack->b_len > 0)
-			push(tmp_a, stack->b_stack, &(stack->a_len), &(stack->b_len));
-		mask++;
-	}
+	if (is_already_sorted(stack, &mask, &i))
+		return ;
 	if (stack->stack_len <= 6)
 	{
 		special_sort(stack);
 		return ;
 	}
-	if (ft_memcmp(tmp_a, snapshot_a_stack, stack->stack_len * sizeof(int)) == 0)
-		return ;
 	mask = 0;
-	while (mask <= stack->max_mask)
+	do_radix_sort(stack, &mask, &i);
+	return ;
+}
+
+void	do_radix_sort(t_stack *stack, int *mask, int *i)
+{
+	while ((*mask) <= stack->max_mask)
 	{
-		i = 0;
-		while (i + stack->b_len < stack->stack_len)
+		(*i) = 0;
+		while ((*i) + (stack->b_l) < stack->stack_len)
 		{
-			if ((stack->a_stack[0] >> mask & 1) == 0)
+			if ((stack->a_st[0] >> (*mask) & 1) == 0)
 			{
 				ft_printf("pb\n");
-				push(stack->b_stack, stack->a_stack, &(stack->b_len), &(stack->a_len));
+				push(stack->b_st, stack->a_st, &(stack->b_l), &(stack->a_l));
 			}
 			else
 			{
 				ft_printf("ra\n");
-				rotate(stack->a_stack, stack->a_len);
-				i++;
+				rotate(stack->a_st, stack->a_l);
+				(*i)++;
 			}
 		}
-		while (stack->b_len > 0)
+		while (stack->b_l > 0)
 		{
 			ft_printf("pa\n");
-			push(stack->a_stack, stack->b_stack, &(stack->a_len), &(stack->b_len));
+			push(stack->a_st, stack->b_st, &(stack->a_l), &(stack->b_l));
 		}
-		mask++;
+		(*mask)++;
 	}
-	return ;
+}
+
+int	is_already_sorted(t_stack *stack, int *mask, int *i)
+{
+	int	*snap_a_1;
+	int	*snap_a_2;
+
+	snap_a_1 = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	snap_a_2 = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	ft_memmove(snap_a_1, stack->a_st, stack->stack_len * 4);
+	ft_memmove(snap_a_2, stack->a_st, stack->stack_len * sizeof(int));
+	(*mask) = 0;
+	sort_sh(stack, snap_a_2, mask, i);
+	if (ft_memcmp(snap_a_2, snap_a_1, stack->stack_len * sizeof(int)) == 0)
+		return (1);
+	return (0);
+}
+
+void	sort_sh(t_stack *stack, int *snap_a_2, int *mask, int *i)
+{
+	while ((*mask) <= stack->max_mask)
+	{
+		(*i) = 0;
+		while ((*i) + stack->b_l < stack->stack_len)
+		{
+			if ((snap_a_2[0] >> (*mask) & 1) == 0)
+				push(stack->b_st, snap_a_2, &(stack->b_l), &(stack->a_l));
+			else
+			{
+				rotate(snap_a_2, stack->a_l);
+				(*i)++;
+			}
+		}
+		while (stack->b_l > 0)
+			push(snap_a_2, stack->b_st, &(stack->a_l), &(stack->b_l));
+		(*mask)++;
+	}
 }
 
 void	ready_sort(t_stack *stack)
 {
-	stack->a_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
-	stack->b_stack = (int *)ft_calloc(stack->stack_len, sizeof(int));
-	if (stack->a_stack == NULL || stack->b_stack == NULL)
+	stack->a_st = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	stack->b_st = (int *)ft_calloc(stack->stack_len, sizeof(int));
+	if (stack->a_st == NULL || stack->b_st == NULL)
 		return ;
-	set_ranking_stack(stack->a_stack, stack->num_stack, stack->stack_len);
+	set_ranking_stack(stack->a_st, stack->num_stack, stack->stack_len);
 	stack->tmp_max_mask = 1 << 30;
 	while (!(stack->stack_len & stack->tmp_max_mask))
 		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
@@ -94,8 +112,8 @@ void	ready_sort(t_stack *stack)
 		stack->tmp_max_mask = stack->tmp_max_mask >> 1;
 		stack->max_mask++;
 	}
-	stack->a_len = stack->stack_len;
-	stack->b_len = stack->a_len - stack->stack_len;
+	stack->a_l = stack->stack_len;
+	stack->b_l = stack->a_l - stack->stack_len;
 	return ;
 }
 
