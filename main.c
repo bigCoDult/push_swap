@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:20:51 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 10:47:53 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 11:11:16 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
-
 	if (!is_proper_argv(argc, argv))
 		return (1);
 	if (argc == 2)
@@ -56,14 +55,14 @@ int	validate_str_stack(t_stack *stack)
 			i++;
 		else
 		{
-			ft_printf("\ninput error : inproper\n\n");
+			write(2, "Error\n: improper input\n", 23);
 			return (0);
 		}
 	}
 	stack->num_stack = atoi_stack(stack->str_stack);
 	if (is_duplicated(stack))
 	{
-		ft_printf("input error : duplicated\n\n");
+		write(2, "Error\n: duplicated input\n", 25);
 		return (0);
 	}
 	return (1);

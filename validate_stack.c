@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 10:47:37 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 11:10:19 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	is_proper_argv(int argc, char **argv)
 		set_check_empty(argv, &i, &k, &check_empty);
 		if (check_empty == 0)
 		{
-			ft_printf("input error : empty argv\n\n");
+			write(2, "Error\n: empty argv\n", 19);
 			return (0);
 		}
 	}

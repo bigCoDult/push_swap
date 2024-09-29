@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:18:19 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/28 18:19:16 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 11:16:45 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push(int *dest_stack, int *src_stack, int *dest_len, int *src_len)
 {
 	if (*src_len == 0)
 	{
-		ft_printf("inproper push\n");
+		write(2, "Error\n: improper push\n", 23);
 		return ;
 	}
 	ft_memmove(dest_stack + 1, dest_stack, (*dest_len) * sizeof(int));
