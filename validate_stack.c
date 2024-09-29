@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 15:39:52 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 16:57:24 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ int	is_restorable(char *str)
 {
 	int	skip;
 	int	sign;
+	char *copy_str;
 
 	skip = 0;
 	sign = 1;
+	copy_str = (char *)ft_calloc(ft_strlen(str) + 1, sizeof(char));
+	ft_memcpy(copy_str, str, ft_strlen(str));
 	if (str[0] == '+')
 		skip++;
 	else if (str[0] == '-')
@@ -28,28 +31,34 @@ int	is_restorable(char *str)
 	}
 	while (str[skip] == '0' && str[skip + 1] != '\0')
 		skip++;
-	if (cmp_itoa_atoi(str, skip, sign) == 0)
+	if (cmp_itoa_atoi(copy_str, skip, sign) == 0)
+	{
+		free(copy_str);
 		return (1);
+	}
 	else
+	{
+		free(copy_str);
 		return (0);
+	}
 }
 
-int	cmp_itoa_atoi(char *str, int skip, int sign)
+int	cmp_itoa_atoi(char *copy_str, int skip, int sign)
 {
 	char	*tmp;
 	int		num;
 	int		cmp_result;
 
-	if (str[skip] == '-' || str[skip] == '+')
+	if (copy_str[skip] == '-' || copy_str[skip] == '+')
 		return (-1);
 	if (sign == -1)
 	{
-		str[skip - 1] = '-';
+		copy_str[skip - 1] = '-';
 		skip--;
 	}
-	num = ft_atoi(str + skip);
+	num = ft_atoi(copy_str + skip);
 	tmp = ft_itoa(num);
-	cmp_result = ft_memcmp(tmp, str + skip, ft_strlen(str) - skip);
+	cmp_result = ft_memcmp(tmp, copy_str + skip, ft_strlen(copy_str) - skip);
 	free(tmp);
 	return (cmp_result);
 }
