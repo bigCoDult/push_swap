@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 12:39:06 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 12:48:08 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	is_restorable(char *str)
 {
 	int	skip;
-	int sign;
+	int	sign;
 
 	skip = 0;
 	sign = 1;
@@ -37,7 +37,7 @@ int	is_restorable(char *str)
 int	cmp_itoa_atoi(char *str, int sign)
 {
 	char	*tmp_str;
-	int 	num;
+	int		num;
 
 	num = ft_atoi(str);
 	if (num < 0)
