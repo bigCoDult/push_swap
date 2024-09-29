@@ -14,6 +14,7 @@ SRC = \
 			radix_sort.c \
 			special_sort.c \
 			stack_tool.c \
+			tool_ab.c \
 			validate_stack.c \
 
 OBJ = $(SRC:.c=.o)
