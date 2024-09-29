@@ -78,19 +78,19 @@ static void	set_words(char *str, char **words, size_t w_c, size_t *edge_pair)
 
 char	**ft_split(char const *str, char separator)
 {
-	t_sentence	sentence;
+	t_sentence	senten;
 
-	sentence.w_c = count_word(str, separator);
-	sentence.words = (char **)ft_calloc(sentence.w_c + 1, sizeof(char *));
-	sentence.edge_pair = (size_t *)ft_calloc(sentence.w_c * 2 + 2, sizeof(size_t));
-	if (sentence.words == NULL || sentence.edge_pair == NULL)
+	senten.w_c = count_word(str, separator);
+	senten.words = (char **)ft_calloc(senten.w_c + 1, sizeof(char *));
+	senten.edge_pair = (size_t *)ft_calloc(senten.w_c * 2 + 2, sizeof(size_t));
+	if (senten.words == NULL || senten.edge_pair == NULL)
 	{
-		free(sentence.words);
-		free(sentence.edge_pair);
+		free(senten.words);
+		free(senten.edge_pair);
 		return (NULL);
 	}
-	set_edge_pair(str, separator, sentence.edge_pair);
-	set_words((char *)str, sentence.words, sentence.w_c, sentence.edge_pair);
-	free(sentence.edge_pair);
-	return (sentence.words);
+	set_edge_pair(str, separator, senten.edge_pair);
+	set_words((char *)str, senten.words, senten.w_c, senten.edge_pair);
+	free(senten.edge_pair);
+	return (senten.words);
 }
