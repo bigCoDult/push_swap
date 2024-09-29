@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 12:48:08 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 12:50:19 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,16 @@ int	cmp_itoa_atoi(char *str, int sign)
 {
 	char	*tmp_str;
 	int		num;
+	int		cmp_result;
 
 	num = ft_atoi(str);
 	if (num < 0)
 		return (-1);
 	num *= sign;
 	tmp_str = ft_itoa(num);
-	if (ft_memcmp(tmp_str, str, ft_strlen(str)) != 0)
-	{
-		free(tmp_str);
-		return (0);
-	}
-	else
-	{
-		free(tmp_str);
-		return (-1);
-	}
+	cmp_result = ft_memcmp(tmp_str, str, ft_strlen(str));
+	free(tmp_str);
+	return (cmp_result);
 }
 
 int	is_duplicated(t_stack *stack)
