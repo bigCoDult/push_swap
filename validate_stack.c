@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 12:50:19 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 14:39:41 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,26 @@ int	is_restorable(char *str)
 	}
 	while (str[skip] == '0' && str[skip + 1] != '\0')
 		skip++;
-	if (cmp_itoa_atoi(str + skip, sign) == 0)
+	if (cmp_itoa_atoi(str, skip, sign) == 0)
 		return (1);
 	else
 		return (0);
 }
 
-int	cmp_itoa_atoi(char *str, int sign)
+int	cmp_itoa_atoi(char *str, int skip, int sign)
 {
-	char	*tmp_str;
+	char	*tmp;
 	int		num;
 	int		cmp_result;
 
-	num = ft_atoi(str);
-	if (num < 0)
+	if (str[skip] == '-' || str[skip] == '+')
 		return (-1);
-	num *= sign;
-	tmp_str = ft_itoa(num);
-	cmp_result = ft_memcmp(tmp_str, str, ft_strlen(str));
-	free(tmp_str);
+	if (sign == -1)
+		str[skip - 1] = '-';
+	num = ft_atoi(str + skip);
+	tmp = ft_itoa(num);
+	cmp_result = ft_memcmp(tmp, str + skip, ft_strlen(str) - skip);
+	free(tmp);
 	return (cmp_result);
 }
 
