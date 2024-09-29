@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:20:51 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 11:11:16 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 11:20:12 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
+
 	if (!is_proper_argv(argc, argv))
 		return (1);
 	if (argc == 2)
