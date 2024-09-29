@@ -6,31 +6,11 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 09:29:53 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 10:42:39 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 10:47:47 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	binary_radix_sort(t_stack *stack)
-{
-	int	i;
-	int	mask;
-
-	ready_sort(stack);
-	if (stack->a_l == 0 || stack->a_l == 1)
-		return ;
-	if (is_already_sorted(stack, &mask, &i))
-		return ;
-	if (stack->stack_len <= 6)
-	{
-		special_sort(stack);
-		return ;
-	}
-	mask = 0;
-	do_radix_sort(stack, &mask, &i);
-	return ;
-}
 
 void	do_radix_sort(t_stack *stack, int *mask, int *i)
 {

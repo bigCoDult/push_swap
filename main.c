@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:20:51 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 09:51:22 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 10:47:53 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,46 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-void	ra(t_stack *stack)
+int	validate_str_stack(t_stack *stack)
 {
-	rotate(stack->a_st, stack->a_l);
-	ft_printf("ra\n");
-	return ;
+	int	i;
+
+	i = 0;
+	while (stack->str_stack[i])
+	{
+		if (is_restorable(stack->str_stack[i]))
+			i++;
+		else
+		{
+			ft_printf("\ninput error : inproper\n\n");
+			return (0);
+		}
+	}
+	stack->num_stack = atoi_stack(stack->str_stack);
+	if (is_duplicated(stack))
+	{
+		ft_printf("input error : duplicated\n\n");
+		return (0);
+	}
+	return (1);
 }
 
-void	sa(t_stack *stack)
+void	binary_radix_sort(t_stack *stack)
 {
-	swap(stack->a_st);
-	ft_printf("sa\n");
-	return ;
-}
+	int	i;
+	int	mask;
 
-void	rra(t_stack *stack)
-{
-	reverse_rotate(stack->a_st, stack->a_l);
-	ft_printf("rra\n");
+	ready_sort(stack);
+	if (stack->a_l == 0 || stack->a_l == 1)
+		return ;
+	if (is_already_sorted(stack, &mask, &i))
+		return ;
+	if (stack->stack_len <= 6)
+	{
+		special_sort(stack);
+		return ;
+	}
+	mask = 0;
+	do_radix_sort(stack, &mask, &i);
 	return ;
 }

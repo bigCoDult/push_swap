@@ -6,35 +6,11 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 06:58:16 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 10:47:37 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	validate_str_stack(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack->str_stack[i])
-	{
-		if (is_restorable(stack->str_stack[i]))
-			i++;
-		else
-		{
-			ft_printf("\ninput error : inproper\n\n");
-			return (0);
-		}
-	}
-	stack->num_stack = atoi_stack(stack->str_stack);
-	if (is_duplicated(stack))
-	{
-		ft_printf("input error : duplicated\n\n");
-		return (0);
-	}
-	return (1);
-}
 
 int	is_restorable(char *str)
 {
