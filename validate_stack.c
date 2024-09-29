@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 14:39:41 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/29 15:39:52 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int	cmp_itoa_atoi(char *str, int skip, int sign)
 	if (str[skip] == '-' || str[skip] == '+')
 		return (-1);
 	if (sign == -1)
+	{
 		str[skip - 1] = '-';
+		skip--;
+	}
 	num = ft_atoi(str + skip);
 	tmp = ft_itoa(num);
 	cmp_result = ft_memcmp(tmp, str + skip, ft_strlen(str) - skip);
