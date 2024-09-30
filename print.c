@@ -6,40 +6,11 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:20:38 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 09:51:22 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/30 12:25:29 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_to_find_error(t_stack *stack)
-{
-	ft_printf("\n");
-	ft_printf("original\n\n");
-	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
-	print_ab(stack);
-	ft_printf("\n");
-	ft_printf("\n\npush pb\n\n\n");
-	push(stack->b_st, stack->a_st, &(stack->b_l), &(stack->a_l));
-	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
-	print_ab(stack);
-	ft_printf("\n\npush pa\n\n\n");
-	push(stack->a_st, stack->b_st, &(stack->a_l), &(stack->b_l));
-	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
-	print_ab(stack);
-	ft_printf("\n\nrotate ra\n\n\n");
-	rotate(stack->a_st, stack->stack_len);
-	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
-	print_ab(stack);
-	ft_printf("\n\npush pb\n\n\n");
-	push(stack->b_st, stack->a_st, &(stack->b_l), &(stack->a_l));
-	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
-	print_ab(stack);
-	push(stack->b_st, stack->a_st, &(stack->b_l), &(stack->a_l));
-	ft_printf("a_l : %d\nb_l : %d\n", stack->a_l, stack->b_l);
-	print_ab(stack);
-	return ;
-}
 
 void	print_stack(int *target_stack, int stack_len)
 {
@@ -84,4 +55,23 @@ void	print_ab(t_stack *stack)
 	}
 	ft_printf("\n");
 	return ;
+}
+
+int	get_cmp_result(char *copy_str, int *num, int *skip)
+{
+	int		cmp_result;
+	char	*tmp;
+	int		len;
+
+	len = ft_strlen(copy_str) - (*skip);
+	tmp = ft_itoa((*num));
+	cmp_result = ft_memcmp(tmp, copy_str + (*skip), len);
+	free(tmp);
+	return (cmp_result);
+}
+
+void	write_minus(char *copy_str, int *skip, int *num)
+{
+	copy_str[(*skip)-- - 1] = '-';
+	(*num) = ft_atoi(copy_str + (*skip));
 }

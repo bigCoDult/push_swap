@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:21:52 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/30 12:10:26 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/30 12:25:26 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ int	is_restorable(char *str)
 
 int	cmp_itoa_atoi(char *str, int skip, int sign)
 {
-	char	*tmp;
 	int		num;
-	int		cmp_result;
 	char	*copy_str;
+	int		cmp_result;
 
 	copy_str = (char *)ft_calloc(ft_strlen(str) + 1, sizeof(char));
 	ft_memcpy(copy_str, str, ft_strlen(str));
@@ -53,19 +52,13 @@ int	cmp_itoa_atoi(char *str, int skip, int sign)
 		free(copy_str);
 		return (-1);
 	}
-
 	if (copy_str[skip] == '0' && (copy_str[skip + 1] == '\0'))
 		num = 0;
 	else if (sign == -1)
-	{
-		copy_str[skip-- - 1] = '-';
-		num = ft_atoi(copy_str + skip);
-	}
+		write_minus(copy_str, &skip, &num);
 	else
 		num = ft_atoi(copy_str + skip);
-	tmp = ft_itoa(num);
-	cmp_result = ft_memcmp(tmp, copy_str + skip, ft_strlen(copy_str) - skip);
-	free(tmp);
+	cmp_result = get_cmp_result(copy_str, &num, &skip);
 	free(copy_str);
 	return (cmp_result);
 }

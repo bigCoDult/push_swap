@@ -6,7 +6,7 @@
 /*   By: sanbaek <sanbaek@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 22:21:15 by sanbaek           #+#    #+#             */
-/*   Updated: 2024/09/29 14:39:54 by sanbaek          ###   ########.fr       */
+/*   Updated: 2024/09/30 12:25:16 by sanbaek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	rra(t_stack *stack);
 void	print_stack(int *target_stack, int stack_len);
 void	print_str_stack(char **str_stack, int stack_len);
 void	print_ab(t_stack *stack);
-void	print_to_find_error(t_stack *stack);
 void	set_str_stack(int argc, char **argv, t_stack *stack);
 void	split_str_stack(t_stack *stack, char *line);
 int		validate_str_stack(t_stack *stack);
@@ -67,5 +66,7 @@ int		get_stack_len(char *line);
 int		is_proper_argv(int argc, char **argv);
 void	set_check_empty(char **argv, int *i, int *k, int *check_empty);
 int		cmp_itoa_atoi(char *str, int skip, int sign);
+void	write_minus(char *copy_str, int *skip, int *num);
+int		get_cmp_result(char *copy_str, int *num, int *skip);
 
 #endif /* PUSH_SWAP_H */
